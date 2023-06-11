@@ -1,14 +1,14 @@
 # LCAO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+Esse projeto foi feito na versão: [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0 e o Back-End foi feito em Java Spring Boot na versão 17 do Java e o banco de dados foi feito em MySQL e o projeto foi feito para a matéria de Projeto Integrado para Web, e é basicamente um sistema de lembretes com CRUD completo para os lembretes, e criação, sessão e autenticação de usuários.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Coloque `ng serve` para criar um servidor local. Navegue para `http://localhost:4200/`. A aplicação irá automaticante recarregar quando você modificar algo e salvar.
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Coloque `ng generate component component-name`para gerar um componente novo. Você também pode usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
