@@ -1,0 +1,100 @@
+.listaLembrete {
+  background: var(--branco);
+  min-height: 100vh;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.cabecalho__titulo {
+  color: var(--preto);
+  padding: 2em 0;
+}
+
+.mural {
+  align-items: center;
+  display: flex;
+  margin: 0 10%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.sem-Lembretes {
+  color: var(--preto);
+  margin: 30vh 0;
+  text-align: center;
+}
+
+.d-flex{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.buscar-lembretes {
+  background: #F8F9FE;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.188);
+  border: 1px solid var(--cinza);
+  border-radius: 10px;
+  display: flex;
+  height: 44px;
+  left: 421px;
+  top: 490px;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  width: 510px;
+}
+
+.buscar-lembretes img {
+  padding-right: 15px;
+}
+
+input::placeholder {
+  color: #C4C4C4;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.filtro {
+  border: none;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  height: 100%;
+  left: 437px;
+  line-height: 29px;
+  outline: 0;
+  text-decoration: none;
+  padding-left: 15px;
+  top: 537px;
+  width: 100%;
+}
+
+@media screen and (min-width: 216px) {
+  .buscar-lembretes {
+    margin: 0 auto;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 396px) {
+  .buscar-lembretes {
+    margin: 0 auto;
+    width: 380px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .buscar-lembretes {
+    margin: 0 auto;
+    width: 510px;
+  }
+}

@@ -1,0 +1,6 @@
+<div class="center" *ngIf="haMaisLembretes; else semMaisLembretes">
+  <button class="botao carregar-mais">Carregar Mais</button>
+</div>
+<ng-template #semMaisLembretes>
+  <p class="mensagem-center">Não há mais lembretes para exibir</p>
+</ng-template>

@@ -1,0 +1,14 @@
+.rodape {
+  align-items: center;
+  background-image: linear-gradient(to right, var(--vermelho) 40%, var(--vermelho-escuro) 60%);
+  border-top: 1px solid var(--cinza);
+  display: flex;
+  justify-content: center;
+  padding: 3em 5em;
+}
+
+.rodape p {
+  color: white;
+  font-size: 12px;
+  font-style: italic;
+}

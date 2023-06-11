@@ -1,0 +1,32 @@
+<section class="container criar-usuario">
+  <header class="header">
+    <h2>Faça seu login:</h2>
+  </header>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="email">Email:</label>
+    <input type="textarea" class="input" id="email" formControlName="email" placeholder="digite o email">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['email'] && formulario.get('email')?.touched">
+      Insira um email valido!
+    </div>
+    <label for="senha">Senha:</label>
+    <input type="password" class="input" id="senha" formControlName="senha" placeholder="digite a senha">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('senha')?.errors?.['minlength'] && formulario.get('senha')?.touched">
+      Insira no mínimo 5 caracteres!
+    </div>
+
+    <div class="acoes">
+      <button (click)="loginUsuario()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Entrar</button>
+      <button (click)="cancelar()" class="botao">Voltar</button>
+    </div>
+    <a routerLink="/cadastrarUsuario" class="mensagem__cadastrar">Ainda não tem uma conta? crie aqui</a>
+  </form>
+</section>

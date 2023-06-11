@@ -1,0 +1,122 @@
+<section class="container criar-lembretes">
+  <header class="header">
+    <h2>Editar <br> Um Lembrete:</h2>
+  </header>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="lembrete">Lembrete:</label>
+    <input type="textarea" class="input" id="lembrete" formControlName="titulo" placeholder="digite o titulo">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('titulo')?.errors?.['required'] && formulario.get('titulo')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <label for="descricao">Descrição:</label>
+    <input type="text" class="input" id="descricao" formControlName="descricao"
+      placeholder="digite a descrição do lembrete">
+    <label for="data">Data:</label>
+    <input type="datetime-local" class="input" id="data" formControlName="data" placeholder="digite a data do lembrete">
+    <div class="mensagem__erro" *ngIf="formulario.get('data')?.errors?.['required'] && formulario.get('data')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('data')?.errors?.['dataInvalida'] && formulario.get('data')?.touched">
+      A data do lembrete não pode ser menor que a data atual!
+    </div>
+
+    <label for="prioridade">Selecione a prioridade:</label>
+    <div class="container-radio">
+      <div class="radio-prioridade">
+        <label for="baixa">
+          <input type="radio" formControlName="prioridade" id="baixa" value="baixa"
+            [checked]="formulario.get('prioridade')?.value === 'baixa'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Baixa</span>
+        </label>
+      </div>
+
+      <div class="radio-prioridade">
+        <label for="media">
+          <input type="radio" formControlName="prioridade" id="media" value="media"
+            [checked]="formulario.get('prioridade')?.value === 'media'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Media</span>
+        </label>
+      </div>
+
+      <div class="radio-prioridade">
+        <label for="alta">
+          <input type="radio" formControlName="prioridade" id="alta" value="alta"
+            [checked]="formulario.get('prioridade')?.value === 'alta'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Alta</span>
+        </label>
+      </div>
+    </div>
+
+    <label for="modelo">Selecione o modelo do card:</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input type="radio" formControlName="modelo" id="modelo1" value="modelo1"
+            [checked]="formulario.get('modelo')?.value === 'modelo1'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo1">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="descricao">{{ formulario.get('descricao')?.value }}</p>
+          <p class="data">{{ formulario.get('data')?.value | date: 'yyyy/MM/dd, HH:mm' }}</p>
+          <p class="prioridade">prioridade: <b class="prioridade">{{ formulario.get('prioridade')?.value }}</b></p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input type="radio" formControlName="modelo" id="modelo2" value="modelo2"
+            [checked]="formulario.get('modelo')?.value === 'modelo2'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo2">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="descricao">{{ formulario.get('descricao')?.value }}</p>
+          <p class="data">{{ formulario.get('data')?.value | date: 'yyyy/MM/dd, HH:mm' }}</p>
+          <p class="prioridade">prioridade: <b class="prioridade">{{ formulario.get('prioridade')?.value }}</b></p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input type="radio" formControlName="modelo" id="modelo3" value="modelo3"
+            [checked]="formulario.get('modelo')?.value === 'modelo3'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo3">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="descricao">{{ formulario.get('descricao')?.value }}</p>
+          <p class="data">{{ formulario.get('data')?.value | date: 'yyyy/MM/dd, HH:mm' }}</p>
+          <p class="prioridade">prioridade: <b class="prioridade">{{ formulario.get('prioridade')?.value }}</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="acoes">
+      <button (click)="editarLembrete()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Salvar</button>
+      <button (click)="cancelar()" class="botao">Cancelar</button>
+    </div>
+  </form>
+</section>

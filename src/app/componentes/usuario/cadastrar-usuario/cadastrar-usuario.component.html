@@ -1,0 +1,41 @@
+<section class="container criar-usuario">
+  <header class="header">
+    <h2>Crie sua conta:</h2>
+  </header>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="nome">Nome:</label>
+    <input type="textarea" class="input" id="nome" formControlName="nome" placeholder="digite o nome">
+    <div class="mensagem__erro" *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <div class="mensagem__erro" *ngIf="formulario.get('nome')?.errors?.['minlength'] && formulario.get('nome')?.touched">
+      Insira no mínimo 4 caracteres!
+    </div>
+    <label for="email">Email:</label>
+    <input type="textarea" class="input" id="email" formControlName="email" placeholder="digite o email">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['email'] && formulario.get('email')?.touched">
+      Insira um email valido!
+    </div>
+    <label for="senha">Senha:</label>
+    <input type="password" class="input" id="senha" formControlName="senha" placeholder="digite a senha">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('senha')?.errors?.['minlength'] && formulario.get('senha')?.touched">
+      Insira no mínimo 5 caracteres!
+    </div>
+
+    <div class="acoes">
+      <button (click)="criarUsuario()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Cadastrar</button>
+      <button (click)="cancelar()" class="botao">Voltar</button>
+    </div>
+    <a routerLink="/loginUsuario" class="mensagem__login">Já tem uma conta? Então façã login</a>
+  </form>
+</section>
+
