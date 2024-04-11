@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  APIFake: 'http://localhost:3000',
+  devAPI: 'http://localhost:8080',
 };
