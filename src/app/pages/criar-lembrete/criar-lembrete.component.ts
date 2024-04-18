@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Lembrete } from '../../../interface/lembrete';
-import { Router } from '@angular/router';
-import { LembreteService } from '../../../service/lembrete.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { dataLembreteValidator } from 'src/app/validators/data-lembrete-validator';
+import { Router } from '@angular/router';
+import { LembreteService } from 'src/app/core/services/lembrete.service';
+import { Lembrete } from 'src/app/core/types/lembrete';
+import { dataLembreteValidator } from 'src/app/shared/validators/data-lembrete-validator';
 
 @Component({
   selector: 'app-criar-lembrete',

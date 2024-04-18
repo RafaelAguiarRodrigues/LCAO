@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListarLembreteComponent } from './componentes/lembretes/listar-lembrete/listar-lembrete.component';
-import { CriarLembreteComponent } from './componentes/lembretes/criar-lembrete/criar-lembrete.component';
-import { ExcluirLembreteComponent } from './componentes/lembretes/excluir-lembrete/excluir-lembrete.component';
-import { EditarLembreteComponent } from './componentes/lembretes/editar-lembrete/editar-lembrete.component';
-import { LoginUsuarioComponent } from './componentes/usuario/login-usuario/login-usuario.component';
-import { CadastrarUsuarioComponent } from './componentes/usuario/cadastrar-usuario/cadastrar-usuario.component';
-import { SairUsuarioComponent } from './componentes/usuario/sair-usuario/sair-usuario.component';
+import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
+import { CriarLembreteComponent } from './pages/criar-lembrete/criar-lembrete.component';
+import { ExcluirLembreteComponent } from './shared/excluir-lembrete/excluir-lembrete.component';
+import { EditarLembreteComponent } from './pages/editar-lembrete/editar-lembrete.component';
+import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
+import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
+import { SairUsuarioComponent } from './shared/sair-usuario/sair-usuario.component';
 
 const routes: Routes = [
   {

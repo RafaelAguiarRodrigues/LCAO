@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LembreteService } from '../../../service/lembrete.service';
-import { Lembrete } from '../../../interface/lembrete';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LembreteService } from 'src/app/core/services/lembrete.service';
+import { Lembrete } from 'src/app/core/types/lembrete';
 
 @Component({
   selector: 'app-excluir-lembrete',
