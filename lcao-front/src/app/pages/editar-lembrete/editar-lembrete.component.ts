@@ -12,12 +12,13 @@ import { dataLembreteValidator } from "src/app/shared/validators/data-lembrete-v
 })
 export class EditarLembreteComponent implements OnInit {
   lembrete: Lembrete = {
-    id: 0,
+    id: '',
     titulo: '',
     descricao: '',
     prioridade: '',
     data: new Date(),
-    modelo: ''
+    modelo: '',
+    usuario_id: ''
   }
   formulario!: FormGroup;
 
@@ -30,7 +31,7 @@ export class EditarLembreteComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
-      id: [0],
+      id: [''],
       titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       descricao: [''],
       data: ['', Validators.compose([Validators.required, dataLembreteValidator])],
@@ -39,15 +40,17 @@ export class EditarLembreteComponent implements OnInit {
     });
 
     const idParam = this.route.snapshot.paramMap.get('id') as string;
-    const id = parseInt(idParam);
 
-    this.service.buscarPorId(id).subscribe((lembrete) => {
-      this.formulario.controls['id'].setValue(lembrete.id);
-      this.formulario.controls['titulo'].setValue(lembrete.titulo);
-      this.formulario.controls['descricao'].setValue(lembrete.descricao);
-      this.formulario.controls['data'].setValue(lembrete.data);
-      this.formulario.controls['prioridade'].setValue(lembrete.prioridade);
-      this.formulario.controls['modelo'].setValue(lembrete.modelo);
+    this.service.buscarPorId(idParam).subscribe((lembrete) => {
+      this.formulario.patchValue({
+        id: lembrete.id,
+        titulo: lembrete.titulo,
+        descricao: lembrete.descricao,
+        data: lembrete.data,
+        prioridade: lembrete.prioridade,
+        modelo: lembrete.modelo,
+        usuario_id: lembrete.usuario_id
+      })
     });
   }
 
@@ -60,6 +63,7 @@ export class EditarLembreteComponent implements OnInit {
         data: this.formulario.controls['data']?.value,
         prioridade: this.formulario.controls['prioridade']?.value,
         modelo: this.formulario.controls['modelo']?.value,
+        usuario_id: ''
       }
     }
     if (this.formulario && this.formulario.valid) {

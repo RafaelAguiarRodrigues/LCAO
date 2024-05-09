@@ -1,10 +1,11 @@
 export interface Lembrete {
-  id?: number;
+  id?: string;
   titulo: string;
   descricao: string;
   prioridade: string;
   data: Date;
   modelo: string;
+  usuario_id: string
 }
 
 

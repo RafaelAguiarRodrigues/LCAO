@@ -19,10 +19,10 @@ export class CriarLembreteComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       descricao: [''],
-      data: ['', Validators.compose([Validators.required, dataLembreteValidator])],
+      data: [new Date().toISOString(), Validators.compose([Validators.required, dataLembreteValidator])],
       prioridade: ['baixa'],
       modelo: ['modelo1']
-    })
+    });
   }
 
   criarLembrete() {
@@ -32,7 +32,8 @@ export class CriarLembreteComponent implements OnInit {
         descricao: this.formulario.value.descricao,
         data: this.formulario.value.data,
         prioridade: this.formulario.value.prioridade,
-        modelo: this.formulario.value.modelo
+        modelo: this.formulario.value.modelo,
+        usuario_id: ''
       };
 
       this.service.criar(lembrete).subscribe({

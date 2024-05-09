@@ -31,12 +31,12 @@ export class LembreteService {
     return this.http.put<Lembrete>(url, lembrete);
   }
 
-  excluir(id: number): Observable<Lembrete> {
+  excluir(id: string): Observable<Lembrete> {
     const url = `${this.API}/${id}`;
     return this.http.delete<Lembrete>(url);
   }
 
-  buscarPorId(id: number): Observable<Lembrete> {
+  buscarPorId(id: string): Observable<Lembrete> {
     const url = `${this.API}/${id}`;
     return this.http.get<Lembrete>(url);
   }

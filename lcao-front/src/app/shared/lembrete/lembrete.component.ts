@@ -10,12 +10,13 @@ import { Lembrete } from 'src/app/core/types/lembrete';
 })
 export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() lembrete: Lembrete = {
-    id: 0,
+    id: '',
     titulo: '',
     descricao: '',
     prioridade: '',
     data: new Date(),
-    modelo: ''
+    modelo: '',
+    usuario_id: ''
   };
 
   intervalo: Subscription | undefined;

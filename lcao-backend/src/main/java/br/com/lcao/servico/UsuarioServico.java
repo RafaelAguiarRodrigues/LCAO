@@ -33,8 +33,8 @@ public class UsuarioServico {
         return null;
     }
 
-    public Boolean logar(UsuarioLoginDTO formulario) {
+    public Usuario logar(UsuarioLoginDTO formulario) {
         Usuario usuarioEntidade = usuarioReposotorio.findBySenhaAndEmail(formulario.getEmail(), formulario.getSenha());
-        return usuarioEntidade != null;
+        return usuarioEntidade;
     }
 }

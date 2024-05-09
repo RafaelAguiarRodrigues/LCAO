@@ -22,8 +22,13 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
 
   constructor(private service: LembreteService, private router: Router) {
     this.subscription = this.service.listar(this.paginaAtual, this.filtro).subscribe({
-      next: (callback) =>
-        this.listaLembretes = callback.content
+      next: (callback) => {
+        this.listaLembretes = callback;
+        console.log(callback);
+      },
+      error: (err) => {
+        alert("Erro ao listar Lembretes!");
+      }
     });
   }
 
@@ -37,12 +42,12 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
       this.filtro = filtro;
       if (filtro) {
         return this.service.listar(this.paginaAtual, this.filtro).pipe(
-          map(callback => callback.content),
+          map(callback => callback),
           filter(lembretes => lembretes.length > 0)
         );
       } else {
         return this.service.listar(this.paginaAtual, this.filtro).pipe(
-          map(callback => callback.content)
+          map(callback => callback)
         );
       }
     })
@@ -50,9 +55,9 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    const usuarioLogado = sessionStorage.getItem('autorizacao');
+    const usuarioLogado = localStorage.getItem('token');
     if (usuarioLogado == null) {
-      this.router.navigate(['./loginUsuario']);
+      this.router.navigate(['./login']);
       alert('Você precisa estar logado para acessar a página!');
     }
   }
@@ -60,7 +65,7 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
   carregarMaisLembretes() {
     this.service.listar(++this.paginaAtual, this.filtro)
       .subscribe(callback => {
-        const listaLembretes = callback.content;
+        const listaLembretes = callback;
         this.listaLembretes.push(...listaLembretes);
         if (!listaLembretes.length) {
           this.haMaisLembretes = false;
