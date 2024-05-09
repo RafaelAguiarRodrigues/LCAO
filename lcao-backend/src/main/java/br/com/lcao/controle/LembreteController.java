@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/lembrete")
-@CrossOrigin("http://localhost:4200")
 public class LembreteController {
     @Autowired
     public LembreteServico lembreteServico;
