@@ -13,6 +13,10 @@ import { ExcluirLembreteComponent } from './shared/excluir-lembrete/excluir-lemb
 import { HttpClientModule } from '@angular/common/http';
 import { SairUsuarioComponent } from './shared/sair-usuario/sair-usuario.component';
 import { BotaoCarregarMaisComponent } from './shared/botao-carregar-mais/botao-carregar-mais.component';
+import { CriarLembreteComponent } from './pages/criar-lembrete/criar-lembrete.component';
+import { EditarLembreteComponent } from './pages/editar-lembrete/editar-lembrete.component';
+import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
+import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,12 @@ import { BotaoCarregarMaisComponent } from './shared/botao-carregar-mais/botao-c
     ListarLembreteComponent,
     ExcluirLembreteComponent,
     SairUsuarioComponent,
-    BotaoCarregarMaisComponent
+    BotaoCarregarMaisComponent,
+    CriarLembreteComponent,
+    EditarLembreteComponent,
+    CadastrarUsuarioComponent,
+    LoginUsuarioComponent,
+    ListarLembreteComponent
   ],
   imports: [
     BrowserModule,

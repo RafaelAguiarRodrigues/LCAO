@@ -1,4 +1,4 @@
-import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 
 export function dataLembreteValidator(): AsyncValidatorFn {
   return (control: AbstractControl): Promise<ValidationErrors | null> => {

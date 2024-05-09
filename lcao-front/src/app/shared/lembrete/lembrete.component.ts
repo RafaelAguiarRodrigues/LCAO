@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { Lembrete } from '../../../interface/lembrete';
 import { interval, Subscription } from 'rxjs';
-import { DatePipe, formatDate } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { Lembrete } from 'src/app/core/types/lembrete';
 
 @Component({
   selector: 'app-lembrete',

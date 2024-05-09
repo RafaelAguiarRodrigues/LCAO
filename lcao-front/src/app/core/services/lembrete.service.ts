@@ -1,7 +1,7 @@
-import { Callback, Lembrete } from '../interface/lembrete';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Callback, Lembrete } from '../types/lembrete';
 
 @Injectable({
   providedIn: 'root'
