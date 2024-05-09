@@ -1,8 +1,8 @@
-package com.example.demo.controle;
+package br.com.lcao.controle;
 
-import com.example.demo.entidade.LembreteEntidade;
-import com.example.demo.modelo.LembreteModel;
-import com.example.demo.servico.LembreteServico;
+import br.com.lcao.entidade.LembreteEntidade;
+import br.com.lcao.servico.LembreteServico;
+import br.com.lcao.modelo.lembrete.Lembrete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class LembreteController {
     public LembreteServico lembreteServico;
 
     @PostMapping
-    public ResponseEntity<LembreteEntidade> salvar(@RequestBody LembreteModel formulario) {
+    public ResponseEntity<LembreteEntidade> salvar(@RequestBody Lembrete formulario) {
         return ResponseEntity.ok(lembreteServico.salvar(formulario));
     }
 
@@ -41,7 +41,7 @@ public class LembreteController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<LembreteEntidade> editar(@PathVariable("id") Integer id, @RequestBody LembreteModel formulario) {
+    public ResponseEntity<LembreteEntidade> editar(@PathVariable("id") Integer id, @RequestBody Lembrete formulario) {
         return ResponseEntity.ok(lembreteServico.editar(id, formulario));
     }
 

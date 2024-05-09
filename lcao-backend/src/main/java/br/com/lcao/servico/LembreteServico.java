@@ -1,8 +1,8 @@
-package com.example.demo.servico;
+package br.com.lcao.servico;
 
-import com.example.demo.entidade.LembreteEntidade;
-import com.example.demo.modelo.LembreteModel;
-import com.example.demo.repositorio.LembreteReposotorio;
+import br.com.lcao.entidade.LembreteEntidade;
+import br.com.lcao.repositorio.LembreteReposotorio;
+import br.com.lcao.modelo.lembrete.Lembrete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,7 +16,7 @@ public class LembreteServico {
     @Autowired
     private LembreteReposotorio lembreteReposotorio;
 
-    public LembreteEntidade salvar(LembreteModel formulario) {
+    public LembreteEntidade salvar(Lembrete formulario) {
         LembreteEntidade lembreteEntidade = new LembreteEntidade();
         lembreteEntidade.setData(formulario.getData());
         lembreteEntidade.setDescricao(formulario.getDescricao());
@@ -31,7 +31,7 @@ public class LembreteServico {
         return lembreteReposotorio.findAll(paging);
     }
 
-    public LembreteEntidade  editar(Integer id, LembreteModel formulario) {
+    public LembreteEntidade  editar(Integer id, Lembrete formulario) {
         LembreteEntidade lembreteEntidade = lembreteReposotorio.findById(id).get();
         lembreteEntidade.setData(formulario.getData());
         lembreteEntidade.setDescricao(formulario.getDescricao());

@@ -1,4 +1,4 @@
-package com.example.demo.entidade;
+package br.com.lcao.entidade;
 
 import jakarta.persistence.*;
 

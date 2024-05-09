@@ -1,6 +1,6 @@
-package com.example.demo.modelo;
+package br.com.lcao.modelo.lembrete;
 
-public class LembreteModel {
+public class Lembrete {
     private String titulo;
     private String descricao;
     private String data;

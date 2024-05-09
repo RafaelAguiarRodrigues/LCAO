@@ -1,9 +1,9 @@
-package com.example.demo.entidade;
+package br.com.lcao.entidade;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tabelalembrete")
+@Table(name = "tabela_lembrete")
 public class LembreteEntidade {
 
     @Id

@@ -1,9 +1,9 @@
-package com.example.demo.controle;
+package br.com.lcao.controle;
 
-import com.example.demo.entidade.UsuarioEntidade;
-import com.example.demo.modelo.UsuarioLoginModel;
-import com.example.demo.modelo.UsuarioModel;
-import com.example.demo.servico.UsuarioServico;
+import br.com.lcao.entidade.UsuarioEntidade;
+import br.com.lcao.modelo.usuario.UsuarioLoginDTO;
+import br.com.lcao.modelo.usuario.Usuario;
+import br.com.lcao.servico.UsuarioServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +15,17 @@ public class UsuarioController {
     private UsuarioServico usuarioServico;
 
     @PostMapping
-    public ResponseEntity<UsuarioEntidade> salvar(@RequestBody UsuarioModel formulario) {
+    public ResponseEntity<UsuarioEntidade> salvar(@RequestBody Usuario formulario) {
         return ResponseEntity.ok(usuarioServico.cadastrar(formulario));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<UsuarioEntidade> editar(@PathVariable("id") Integer id, @RequestBody UsuarioModel formulario) {
+    public ResponseEntity<UsuarioEntidade> editar(@PathVariable("id") Integer id, @RequestBody Usuario formulario) {
         return ResponseEntity.ok(usuarioServico.editar(id, formulario));
     }
 
     @PostMapping("/logar")
-    public Boolean logar(@RequestBody UsuarioLoginModel formulario) {
+    public Boolean logar(@RequestBody UsuarioLoginDTO formulario) {
         return usuarioServico.logar(formulario);
     }
 }

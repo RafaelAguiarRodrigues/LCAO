@@ -1,6 +1,6 @@
-package com.example.demo.repositorio;
+package br.com.lcao.repositorio;
 
-import com.example.demo.entidade.UsuarioEntidade;
+import br.com.lcao.entidade.UsuarioEntidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

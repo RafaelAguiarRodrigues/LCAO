@@ -1,9 +1,24 @@
-package com.example.demo.modelo;
+package br.com.lcao.entidade;
 
-public class UsuarioModel {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="tabela_usuario", uniqueConstraints = @UniqueConstraint(columnNames = {"email"}, name = "uk_usuario"))
+public class UsuarioEntidade {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
     private String nome;
     private String email;
     private String senha;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

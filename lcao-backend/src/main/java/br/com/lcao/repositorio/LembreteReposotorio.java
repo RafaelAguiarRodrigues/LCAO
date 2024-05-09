@@ -1,6 +1,6 @@
-package com.example.demo.repositorio;
+package br.com.lcao.repositorio;
 
-import com.example.demo.entidade.LembreteEntidade;
+import br.com.lcao.entidade.LembreteEntidade;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

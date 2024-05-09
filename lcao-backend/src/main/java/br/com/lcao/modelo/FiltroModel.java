@@ -1,4 +1,4 @@
-package com.example.demo.modelo;
+package br.com.lcao.modelo;
 
 public class FiltroModel {
     private String valor;

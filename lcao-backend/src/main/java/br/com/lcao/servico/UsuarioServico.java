@@ -1,9 +1,9 @@
-package com.example.demo.servico;
+package br.com.lcao.servico;
 
-import com.example.demo.entidade.UsuarioEntidade;
-import com.example.demo.modelo.UsuarioLoginModel;
-import com.example.demo.modelo.UsuarioModel;
-import com.example.demo.repositorio.UsuarioReposotorio;
+import br.com.lcao.entidade.UsuarioEntidade;
+import br.com.lcao.repositorio.UsuarioReposotorio;
+import br.com.lcao.modelo.usuario.UsuarioLoginDTO;
+import br.com.lcao.modelo.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class UsuarioServico {
     @Autowired
     private UsuarioReposotorio usuarioReposotorio;
 
-    public UsuarioEntidade cadastrar(UsuarioModel formulario) {
+    public UsuarioEntidade cadastrar(Usuario formulario) {
         UsuarioEntidade usuario = new UsuarioEntidade();
         usuario.setEmail(formulario.getEmail());
         usuario.setNome(formulario.getNome());
@@ -23,7 +23,7 @@ public class UsuarioServico {
         return usuarioReposotorio.save(usuario);
     }
 
-    public UsuarioEntidade editar(Integer id, UsuarioModel formulario) {
+    public UsuarioEntidade editar(Integer id, Usuario formulario) {
         Optional<UsuarioEntidade> usuario = usuarioReposotorio.findById(id);
         if (usuario.isPresent()) {
             usuario.get().setNome(formulario.getNome());
@@ -34,7 +34,7 @@ public class UsuarioServico {
         return null;
     }
 
-    public Boolean logar(UsuarioLoginModel formulario) {
+    public Boolean logar(UsuarioLoginDTO formulario) {
         UsuarioEntidade usuarioEntidade = usuarioReposotorio.findBySenhaAndEmail(formulario.getEmail(), formulario.getSenha());
         return usuarioEntidade != null;
     }

@@ -1,6 +1,6 @@
-package com.example.demo.repositorio;
+package br.com.lcao.repositorio;
 
-import com.example.demo.entidade.UsuarioLembreteEntidade;
+import br.com.lcao.entidade.UsuarioLembreteEntidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LembreteUsuarioReposotorio extends JpaRepository<UsuarioLembreteEntidade, Integer> {
