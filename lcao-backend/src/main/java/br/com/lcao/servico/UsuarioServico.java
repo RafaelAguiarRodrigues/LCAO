@@ -1,6 +1,5 @@
 package br.com.lcao.servico;
 
-import br.com.lcao.entidade.UsuarioEntidade;
 import br.com.lcao.repositorio.UsuarioReposotorio;
 import br.com.lcao.modelo.usuario.UsuarioLoginDTO;
 import br.com.lcao.modelo.usuario.Usuario;
@@ -15,16 +14,16 @@ public class UsuarioServico {
     @Autowired
     private UsuarioReposotorio usuarioReposotorio;
 
-    public UsuarioEntidade cadastrar(Usuario formulario) {
-        UsuarioEntidade usuario = new UsuarioEntidade();
+    public Usuario cadastrar(Usuario formulario) {
+        Usuario usuario = new Usuario();
         usuario.setEmail(formulario.getEmail());
         usuario.setNome(formulario.getNome());
         usuario.setSenha(formulario.getSenha());
         return usuarioReposotorio.save(usuario);
     }
 
-    public UsuarioEntidade editar(Integer id, Usuario formulario) {
-        Optional<UsuarioEntidade> usuario = usuarioReposotorio.findById(id);
+    public Usuario editar(String id, Usuario formulario) {
+        Optional<Usuario> usuario = usuarioReposotorio.findById(id);
         if (usuario.isPresent()) {
             usuario.get().setNome(formulario.getNome());
             usuario.get().setSenha(formulario.getSenha());
@@ -35,7 +34,7 @@ public class UsuarioServico {
     }
 
     public Boolean logar(UsuarioLoginDTO formulario) {
-        UsuarioEntidade usuarioEntidade = usuarioReposotorio.findBySenhaAndEmail(formulario.getEmail(), formulario.getSenha());
+        Usuario usuarioEntidade = usuarioReposotorio.findBySenhaAndEmail(formulario.getEmail(), formulario.getSenha());
         return usuarioEntidade != null;
     }
 }

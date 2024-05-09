@@ -4,30 +4,31 @@ USE lcaoBanco;
 
 -- Tabela de Usuários
 CREATE TABLE IF NOT EXISTS lcaoBanco.`tabela_usuario` (
-    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `id` VARCHAR(36) UNIQUE NOT NULL,
     `nome` VARCHAR(255) NOT NULL,
     `email` VARCHAR(150) NOT NULL,
-    `senha` VARCHAR(40) NOT NULL
+    `senha` VARCHAR(40) NOT NULL,
+    PRIMARY KEY(id)
 ) ENGINE = InnoDB;
 
 -- Tabela de Lembretes
 CREATE TABLE IF NOT EXISTS lcaoBanco.`tabela_lembrete` (
-    `id` INT NOT NULL AUTO_INCREMENT,
+    `id` VARCHAR(36) UNIQUE NOT NULL,
     `titulo` VARCHAR(255) NOT NULL,
     `descricao` VARCHAR(255) NOT NULL,
     `data` VARCHAR(255) NOT NULL,
     `prioridade` VARCHAR(15) NOT NULL,
     `modelo` VARCHAR(40) NOT NULL,
-    `usuario_id` INT,
+    `usuario_id` VARCHAR(36),
     PRIMARY KEY(id),
     FOREIGN KEY (usuario_id) REFERENCES tabela_usuario(id)
 ) ENGINE = InnoDB;
 
 -- Tabela de Anotações
 CREATE TABLE IF NOT EXISTS lcaoBanco.`tabela_anotacoes` (
-    `id` INT AUTO_INCREMENT,
+    `id` VARCHAR(36) UNIQUE NOT NULL,
     `conteudo` TEXT,
-    `usuario_id` INT,
+    `usuario_id` VARCHAR(36),
     PRIMARY KEY(id),
     FOREIGN KEY (usuario_id) REFERENCES tabela_usuario(id)
 ) ENGINE = InnoDB;

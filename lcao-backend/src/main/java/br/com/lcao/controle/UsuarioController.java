@@ -1,6 +1,5 @@
 package br.com.lcao.controle;
 
-import br.com.lcao.entidade.UsuarioEntidade;
 import br.com.lcao.modelo.usuario.UsuarioLoginDTO;
 import br.com.lcao.modelo.usuario.Usuario;
 import br.com.lcao.servico.UsuarioServico;
@@ -15,12 +14,12 @@ public class UsuarioController {
     private UsuarioServico usuarioServico;
 
     @PostMapping
-    public ResponseEntity<UsuarioEntidade> salvar(@RequestBody Usuario formulario) {
+    public ResponseEntity<Usuario> salvar(@RequestBody Usuario formulario) {
         return ResponseEntity.ok(usuarioServico.cadastrar(formulario));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<UsuarioEntidade> editar(@PathVariable("id") Integer id, @RequestBody Usuario formulario) {
+    public ResponseEntity<Usuario> editar(@PathVariable("id") String id, @RequestBody Usuario formulario) {
         return ResponseEntity.ok(usuarioServico.editar(id, formulario));
     }
 
