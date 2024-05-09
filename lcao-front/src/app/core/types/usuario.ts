@@ -4,8 +4,3 @@ export interface Usuario {
   email: string,
   senha: string
 }
-
-export interface Callback {
-  content: Usuario[];
-  totalPages: number;
-}

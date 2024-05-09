@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface LembreteReposotorio extends JpaRepository<Lembrete, String> {
     @Query("SELECT l FROM lembrete l WHERE l.titulo LIKE %:filtro% OR l.descricao LIKE %:filtro% OR l.prioridade LIKE %:filtro%")
     Page<Lembrete> filtrar(Pageable pageable, @Param("filtro") String filtro);
+
 }
 
 

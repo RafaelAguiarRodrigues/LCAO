@@ -7,7 +7,4 @@ export interface Lembrete {
   modelo: string;
 }
 
-export interface Callback {
-  content: Lembrete[];
-  totalPages: number;
-}
+

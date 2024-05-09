@@ -15,12 +15,14 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> salvar(@RequestBody Usuario formulario) {
-        return ResponseEntity.ok(usuarioServico.cadastrar(formulario));
+        usuarioServico.cadastrar(formulario);
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("{id}")
     public ResponseEntity<Usuario> editar(@PathVariable("id") String id, @RequestBody Usuario formulario) {
-        return ResponseEntity.ok(usuarioServico.editar(id, formulario));
+        usuarioServico.editar(id, formulario);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/logar")

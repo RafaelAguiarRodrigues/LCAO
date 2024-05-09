@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,12 +26,15 @@ public class LembreteServico {
         return lembreteReposotorio.save(lembreteEntidade);
     }
 
-    public Page<Lembrete> listar(Integer pagina, Integer limit) {
-        Pageable paging = PageRequest.of(pagina, limit);
-        return lembreteReposotorio.findAll(paging);
+    public List<Lembrete> listar(String filtro, Integer pagina, Integer limit) {
+        Pageable pageable = PageRequest.of(pagina, limit);
+        if(filtro != null){
+            return lembreteReposotorio.filtrar(pageable, filtro).getContent();
+        }
+        return lembreteReposotorio.findAll(pageable).getContent();
     }
 
-    public Lembrete  editar(String id, Lembrete formulario) {
+    public Lembrete editar(String id, Lembrete formulario) {
         Lembrete lembrete = lembreteReposotorio.findById(id).get();
         lembrete.setData(formulario.getData());
         lembrete.setDescricao(formulario.getDescricao());
@@ -44,12 +48,8 @@ public class LembreteServico {
         lembreteReposotorio.deleteById(id);
     }
 
-    public Page<Lembrete> filtrar(String filtro, Integer pagina, Integer limit) {
-        Pageable paging = PageRequest.of(pagina, limit);
-        return lembreteReposotorio.filtrar(paging, filtro);
-    }
-
     public Optional<Lembrete> buscarPorId(String id) {
-        return lembreteReposotorio.findById(id);
+        var lembrete = lembreteReposotorio.findById(id);
+        return lembrete;
     }
 }

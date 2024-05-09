@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Callback, Lembrete } from '../types/lembrete';
+import { Lembrete } from '../types/lembrete';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class LembreteService {
 
   constructor(private http: HttpClient) { }
 
-  listar(pagina: number, filtro: string): Observable<Callback> {
+  listar(pagina: number, filtro: string): Observable<Lembrete[]> {
     const itensPorPagina = 8;
     let params = new HttpParams().set('pagina', pagina.toString()).set('limit', itensPorPagina.toString());
 
@@ -19,7 +19,7 @@ export class LembreteService {
       params = params.set('filtro', filtro);
     }
 
-    return this.http.get<Callback>(`${this.API}`, { params });
+    return this.http.get<Lembrete[]>(`${this.API}`, { params });
   }
 
   criar(lembrete: Lembrete): Observable<Lembrete> {
