@@ -1,8 +1,8 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .acoes {
   display: flex;
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
 .botao-excluir {
@@ -19,32 +19,35 @@
   margin-top: 10px;
 }
 
-.modelo, .modelo1, .modelo2, .modelo3 {
+.modelo,
+.modelo1,
+.modelo2,
+.modelo3 {
   background: #ebedf1;
   border: 1px solid $cinza;
   padding: 1rem;
   max-width: 250px;
   margin: 1rem 0 2rem;
-}
 
-.modelo .titulo {
-  text-align: center;
-  margin: 1rem auto;
-  word-wrap: break-word;
-}
+  .titulo {
+    text-align: center;
+    margin: 1rem auto;
+    word-wrap: break-word;
+  }
 
-.modelo .descricao {
-  word-wrap: break-word;
-}
+  .descricao {
+    word-wrap: break-word;
+  }
 
-.modelo .data {
-  margin: 1rem auto;
-  word-wrap: break-word;
-}
+  .data {
+    margin: 1rem auto;
+    word-wrap: break-word;
+  }
 
-.modelo .prioridade {
-  text-transform: uppercase;
-  word-wrap: break-word;
+  .prioridade {
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
 }
 
 .modelo1 {

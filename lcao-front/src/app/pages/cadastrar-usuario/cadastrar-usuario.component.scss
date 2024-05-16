@@ -1,18 +1,5 @@
 @import "../../../styles.scss";
 
-.acoes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-.botao {
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
-}
-
 .criar-usuario {
   padding: 2rem 0;
 
@@ -46,14 +33,27 @@
       border-radius: 20px;
       margin: 0.5rem 0 2rem;
     }
-  }
-}
 
-.botao__desabilitado {
-  background-color: #483d3d;
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
+    .acoes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      .botao {
+        margin: 5px;
+        margin-top: 70px;
+        width: 200px;
+      }
+
+      .botao__desabilitado {
+        background-color: #483d3d;
+        margin: 5px;
+        margin-top: 70px;
+        width: 200px;
+      }
+    }
+  }
 }
 
 .mensagem__erro {

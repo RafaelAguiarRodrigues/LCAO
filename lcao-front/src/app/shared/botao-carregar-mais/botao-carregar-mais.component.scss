@@ -1,20 +1,21 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-.carregar-mais {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 .center {
   display: flex;
   justify-content: center;
+
+  .carregar-mais {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 .mensagem-center {
   color: $preto;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-}
 
-p {
-  color: $branco;
+  p {
+    color: $branco;
+  }
 }

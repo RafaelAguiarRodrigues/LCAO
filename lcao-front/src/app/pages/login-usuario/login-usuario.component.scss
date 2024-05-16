@@ -1,59 +1,70 @@
 @import "../../../styles.scss";
 
-.header h2 {
-  text-align: center;
-  margin: 1em auto;
-}
-
-.acoes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-.botao {
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
-}
-
 .criar-usuario {
   padding: 2rem 0;
-}
 
-.criar-usuario form {
-  background: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.69) 40%,
-    $vermelho 60%
-  );
-  border: none;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-}
+  .header h2 {
+    text-align: center;
+    margin: 1em auto;
+  }
 
-.criar-usuario form label {
-  color: $branco;
-  font-weight: bold;
-  margin: 0 0 1rem;
-}
+  form {
+    background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0.69) 40%,
+      $vermelho 60%
+    );
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
 
-.criar-usuario form .input {
-  border: none;
-  height: 40px;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  margin: 0.5rem 0 2rem;
-}
+    label {
+      color: $branco;
+      font-weight: bold;
+      margin: 0 0 1rem;
+    }
 
-.botao__desabilitado {
-  background-color: #483d3d;
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
+    .input {
+      border: none;
+      height: 40px;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .acoes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      .botao {
+        margin: 5px;
+        margin-top: 70px;
+        width: 200px;
+      }
+
+      .botao__desabilitado {
+        background-color: #483d3d;
+        margin: 5px;
+        margin-top: 70px;
+        width: 200px;
+      }
+    }
+
+    .mensagem__cadastrar {
+      color: $branco;
+      margin: 2em auto;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    .mensagem__cadastrar:hover {
+      font-weight: bold;
+    }
+  }
 }
 
 .mensagem__erro {
@@ -63,15 +74,4 @@
   margin-left: 5px;
   margin-top: -25px;
   margin-bottom: 20px;
-}
-
-.mensagem__cadastrar {
-  color: $branco;
-  margin: 2em auto;
-  text-align: center;
-  text-decoration: underline;
-}
-
-.mensagem__cadastrar:hover {
-  font-weight: bold;
 }

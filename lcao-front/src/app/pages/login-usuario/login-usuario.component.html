@@ -4,7 +4,7 @@
   </header>
   <form [formGroup]="formulario" *ngIf="formulario">
     <label for="email">Email:</label>
-    <input type="textarea" class="input" id="email" formControlName="email" placeholder="digite o email">
+    <input type="text" class="input" id="email" formControlName="email" placeholder="digite o email">
     <div class="mensagem__erro"
       *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
       Este campo é obrigatorio!

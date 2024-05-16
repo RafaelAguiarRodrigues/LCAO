@@ -14,6 +14,34 @@
   font-size: 1.5rem;
   text-align: center;
   padding-top: 50px;
+
+  .acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 30px;
+
+    .botao {
+      margin: 5px;
+      margin-top: 70px;
+      width: 200px;
+    }
+
+    .botao-cancelar {
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .botao-sair {
+      border: none;
+      cursor: pointer;
+      margin-left: 5px;
+      margin-top: 10px;
+    }
+  }
 }
 
 .overlay {
@@ -25,38 +53,6 @@
   top: 0;
   width: 100vw;
   z-index: 10;
-}
-
-.acoes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 30px;
-}
-
-.botao {
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
-}
-
-.botao-cancelar {
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.botao-excluir {
-  border: none;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 10px;
-}
-
-.excluir-lembretes {
-  padding: 10rem 0;
 }
 
 @media screen and (max-width: 548px) {

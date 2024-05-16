@@ -1,64 +1,71 @@
-@import '../../../styles.scss';
-
-.header h2 {
-  text-align: center;
-}
-
-.acoes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-.botao {
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
-}
+@import "../../../styles.scss";
 
 .criar-lembretes {
   padding: 2rem 0;
-}
 
-.criar-lembretes form {
-  background: linear-gradient(
-    to right,
-    rgba(255, 62, 62, 0.69) 40%,
-    rgba(255, 0, 0, 0.764) 60%
-  );
-  border: none;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-}
+  .header h2 {
+    text-align: center;
+  }
 
-.criar-lembretes form label {
-  color: $vermelho-escuro;
-  font-weight: bold;
-  margin: 0 0 1rem;
-}
+  form {
+    background: linear-gradient(
+      to right,
+      rgba(255, 62, 62, 0.69) 40%,
+      rgba(255, 0, 0, 0.764) 60%
+    );
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
 
-.criar-lembretes form .input {
-  border: none;
-  height: 40px;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  margin: 0.5rem 0 2rem;
-}
+    label {
+      color: $vermelho-escuro;
+      font-weight: bold;
+      margin: 0 0 1rem;
+    }
 
-.criar-lembretes form .textarea {
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  margin: 0.5rem 0 2rem;
-}
+    .input {
+      border: none;
+      height: 40px;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 0.5rem 0 2rem;
+    }
 
-.container-radio {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+    .textarea {
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .container-radio {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .acoes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      .botao {
+        margin: 5px;
+        margin-top: 70px;
+        width: 200px;
+      }
+
+      .botao__desabilitado {
+        background-color: #483d3d;
+        margin: 5px;
+        margin-top: 70px;
+        width: 200px;
+      }
+    }
+  }
 }
 
 .modelos {
@@ -72,26 +79,26 @@
   padding: 1rem;
   max-width: 250px;
   margin: 1rem 0 2rem;
-}
 
-.modelo .titulo {
-  text-align: center;
-  margin: 1rem auto;
-  word-wrap: break-word;
-}
+  .titulo {
+    text-align: center;
+    margin: 1rem auto;
+    word-wrap: break-word;
+  }
 
-.modelo .descricao {
-  word-wrap: break-word;
-}
+  .descricao {
+    word-wrap: break-word;
+  }
 
-.modelo .data {
-  margin: 1rem auto;
-  word-wrap: break-word;
-}
+  .data {
+    margin: 1rem auto;
+    word-wrap: break-word;
+  }
 
-.modelo .prioridade {
-  text-transform: uppercase;
-  word-wrap: break-word;
+  .prioridade {
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
 }
 
 .radio {
@@ -110,38 +117,37 @@
   box-shadow: 8px 8px 0px #84ee89;
 }
 
-input[type="radio"] {
-  display: none;
-}
-
 .radio-modelo label,
 .radio-prioridade label {
   display: flex;
   align-items: center;
   column-gap: 20px;
-}
 
-.custom-radio {
-  border: 1px solid $vermelho-escuro;
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-content: center;
-  border-radius: 50%;
-}
+  input[type="radio"] {
+    display: none;
+  }
 
-.custom-radio,
-span {
-  transition: 0.5s ease;
-  color: $vermelho-escuro;
-}
+  .custom-radio {
+    border: 1px solid $vermelho-escuro;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
 
-.custom-radio span {
-  content: "";
-  width: 18px;
-  height: 18px;
-  background: transparent;
-  border-radius: 50%;
+    span {
+      transition: 0.5s ease;
+      color: $vermelho-escuro;
+    }
+
+    span {
+      content: "";
+      width: 18px;
+      height: 18px;
+      background: transparent;
+      border-radius: 50%;
+    }
+  }
 }
 
 input[type="radio"]:checked + .custom-radio {
@@ -150,13 +156,6 @@ input[type="radio"]:checked + .custom-radio {
 
 input[type="radio"]:checked + .custom-radio span {
   background: $vermelho-escuro;
-}
-
-.botao__desabilitado {
-  background-color: #483d3d;
-  margin: 5px;
-  margin-top: 70px;
-  width: 200px;
 }
 
 .mensagem__erro {
