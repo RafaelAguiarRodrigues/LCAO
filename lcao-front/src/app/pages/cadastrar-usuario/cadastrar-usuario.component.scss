@@ -1,10 +1,5 @@
 @import "../../../styles.scss";
 
-.header h2 {
-  text-align: center;
-  margin: 1em auto;
-}
-
 .acoes {
   display: flex;
   justify-content: center;
@@ -20,84 +15,38 @@
 
 .criar-usuario {
   padding: 2rem 0;
-}
 
-.criar-usuario form {
-  background: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.69) 40%,
-    $vermelho 60%
-  );
-  border: none;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-}
+  .header h2 {
+    text-align: center;
+    margin: 1em auto;
+  }
 
-.criar-usuario form label {
-  color: $branco;
-  font-weight: bold;
-  margin: 0 0 1rem;
-}
+  form {
+    background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0.69) 40%,
+      $vermelho 60%
+    );
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
 
-.criar-usuario form .input {
-  border: none;
-  height: 40px;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  margin: 0.5rem 0 2rem;
-}
+    label {
+      color: $branco;
+      font-weight: bold;
+      margin: 0 0 1rem;
+    }
 
-.criar-usuario form .textarea {
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  margin: 0.5rem 0 2rem;
-}
-
-.container-radio {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-}
-
-.radio {
-  margin: 0;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-.radio-modelo label,
-.radio-prioridade label {
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
-}
-
-.custom-radio {
-  border: 1px solid $vermelho-escuro;
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-content: center;
-  border-radius: 50%;
-}
-
-.custom-radio,
-span {
-  transition: 0.5s ease;
-  color: $vermelho-escuro;
-}
-
-.custom-radio span {
-  content: "";
-  width: 18px;
-  height: 18px;
-  background: transparent;
-  border-radius: 50%;
+    .input {
+      border: none;
+      height: 40px;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 0.5rem 0 2rem;
+    }
+  }
 }
 
 .botao__desabilitado {
