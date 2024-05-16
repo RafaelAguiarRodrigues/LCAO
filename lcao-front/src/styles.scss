@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Montserrat:wght@100;300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* fontes */
-$fonte-titulo: "EB Garamond", serif;
+$fonte-titulo: "Rubik", sans-serif;
+$fonte-padrao: "Montserrat", sans-serif;
 
 /* cor */
 $preto: #000000;
@@ -10,8 +12,6 @@ $cinza: #cccccc;
 
 $vermelho: #fe0303;
 $vermelho-escuro: #970000;
-$azul: rgb(0, 149, 255);
-$azul-escuro: rgb(0, 55, 95);
 
 /* reset css */
 html,
@@ -103,18 +103,23 @@ video {
   vertical-align: baseline;
 }
 
+ol,
+ul {
+  list-style: none;
+}
+
+
 /* estilo padrozinado */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: $fonte-padrao;
 }
 
 main {
   min-height: 100vh;
 }
 
-ol,
-ul {
-  list-style: none;
+b, strong {
+  font-weight: bold;
 }
 
 .botao {
@@ -127,11 +132,6 @@ ul {
   padding: 1em;
   transition: 0.5s ease;
 
-  &:hover {
-    cursor: pointer;
-    background-color: $vermelho-escuro;
-  }
-
   &:disabled {
     background-color: $cinza;
     border: 1px solid $branco;
@@ -140,9 +140,17 @@ ul {
     transition: 0.5s ease;
   }
 
-  &:focus {
+  &:hover:not(:disabled) {
+    background-color: $vermelho;
+    box-shadow: 0 1px 8px $vermelho-escuro;
+    cursor: pointer;
+    color: $branco;
+  }
+
+  &:focus:not(:disabled) {
     border: 1px solid $vermelho-escuro;
-    box-shadow: 0 0 5px rgba(84, 84, 197, 0.5);
+    box-shadow: 0 1px 5px rgb(53, 53, 136);
+    outline: none;
   }
 }
 

@@ -26,7 +26,6 @@
   background: #ebedf1;
   border: 1px solid $cinza;
   padding: 1rem;
-  max-width: 250px;
   margin: 1rem 0 2rem;
 
   .titulo {
@@ -50,6 +49,23 @@
   }
 }
 
+.lembrete-g {
+  width: 556px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.lembrete-p {
+  width: 262px;
+
+  @media screen and (max-width: 426px) {
+    width: 100%;
+  }
+}
+
+
 .modelo1 {
   box-shadow: 8px 8px 1px $vermelho-escuro;
 }
@@ -60,23 +76,4 @@
 
 .modelo3 {
   box-shadow: 8px 8px 1px #84ee89;
-}
-
-.lembrete-g {
-  width: 556px;
-}
-
-.lembrete-p {
-  width: 262px;
-}
-
-@media screen and (max-width: 768px) {
-  .pensamento-g {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 426px) {
-  .pensamento-p {
-    width: 100%;
-  }
 }

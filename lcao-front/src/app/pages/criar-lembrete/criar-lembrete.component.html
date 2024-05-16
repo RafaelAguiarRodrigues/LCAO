@@ -4,8 +4,7 @@
   </header>
   <form [formGroup]="formulario" *ngIf="formulario">
     <label for="lembrete">Lembrete:</label>
-    <input type="textarea" class="input" id="lembrete" formControlName="titulo"
-      placeholder="digite o titulo">
+    <input type="textarea" class="input" id="lembrete" formControlName="titulo" placeholder="digite o titulo">
     <div class="mensagem__erro"
       *ngIf="formulario.get('titulo')?.errors?.['required'] && formulario.get('titulo')?.touched">
       Este campo é obrigatorio!
@@ -14,8 +13,7 @@
     <input type="text" class="input" id="descricao" formControlName="descricao"
       placeholder="digite a descrição do lembrete">
     <label for="data">Data:</label>
-    <input type="datetime-local" class="input" id="data" formControlName="data"
-      placeholder="digite a data do lembrete">
+    <input type="datetime-local" class="input" id="data" formControlName="data" placeholder="digite a data do lembrete">
     <div class="mensagem__erro" *ngIf="formulario.get('data')?.errors?.['required'] && formulario.get('data')?.touched">
       Este campo é obrigatorio!
     </div>
@@ -113,8 +111,8 @@
       </div>
     </div>
     <div class="acoes">
-      <button (click)="criarLembrete()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Salvar</button>
       <button (click)="cancelar()" class="botao">Cancelar</button>
+      <button (click)="criarLembrete()" class="botao" [disabled]="!formulario.valid">Salvar</button>
     </div>
   </form>
 </section>

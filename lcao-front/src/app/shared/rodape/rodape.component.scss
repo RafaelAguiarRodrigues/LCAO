@@ -4,8 +4,9 @@
   align-items: center;
   background-image: linear-gradient(
     to right,
-    $vermelho 40%,
-    $vermelho-escuro 60%
+    $vermelho 0%,
+    $vermelho 50%,
+    $vermelho-escuro 100%
   );
   border-top: 1px solid $cinza;
   display: flex;

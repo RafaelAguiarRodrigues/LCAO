@@ -10,7 +10,7 @@
   </header>
   <div class="mural" *ngIf="(lembretesEncontrados$ | async) as lembretes; else semLembretes">
     <ng-container *ngIf="lembretes.length > 0; else semLembretes">
-      <div *ngFor="let lembrete of lembretes">
+      <div *ngFor="let lembrete of listaLembretes">
         <app-lembrete [lembrete]="lembrete"></app-lembrete>
       </div>
     </ng-container>

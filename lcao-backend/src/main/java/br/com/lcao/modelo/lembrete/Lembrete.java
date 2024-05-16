@@ -19,7 +19,7 @@ public class Lembrete {
     private String id;
     @Column(name = "titulo", nullable = false)
     private String titulo;
-    @Column(name = "descricao", nullable = false)
+    @Column(name = "descricao", columnDefinition = "TEXT")
     private String descricao;
     @Column(name = "data", nullable = false)
     private String data;

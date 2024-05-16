@@ -19,7 +19,7 @@ export class CriarLembreteComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       descricao: [''],
-      data: [new Date().toISOString(), Validators.compose([Validators.required, dataLembreteValidator])],
+      data: [null, [Validators.required, dataLembreteValidator]],
       prioridade: ['baixa'],
       modelo: ['modelo1']
     });
@@ -46,13 +46,5 @@ export class CriarLembreteComponent implements OnInit {
 
   cancelar() {
     this.router.navigate((['./listarLembrete']));
-  }
-
-  habilitarBotao(): string {
-    if (this.formulario.valid) {
-      return 'botao'
-    } else {
-      return 'botao__desabilitado'
-    }
   }
 }

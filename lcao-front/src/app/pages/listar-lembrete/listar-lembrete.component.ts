@@ -23,7 +23,7 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
   constructor(private service: LembreteService, private router: Router) {
     this.subscription = this.service.listar(this.paginaAtual, this.filtro).subscribe({
       next: (callback) => {
-        this.listaLembretes = callback;
+        this.listaLembretes.push(...callback);
       },
       error: () => {
         alert("Erro ao listar Lembretes!");
@@ -56,18 +56,19 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const usuarioLogado = localStorage.getItem('token');
     if (usuarioLogado == null) {
-      this.router.navigate(['./login']);
+      this.router.navigate(['/login']);
       alert('Você precisa estar logado para acessar a página!');
     }
   }
 
-  carregarMaisLembretes() {
-    this.service.listar(++this.paginaAtual, this.filtro)
-      .subscribe(callback => {
-        const listaLembretes = callback;
-        this.listaLembretes.push(...listaLembretes);
-        if (!listaLembretes.length) {
-          this.haMaisLembretes = false;
+  carregarMaisLembretes(): void {
+    this.service.listar(++this.paginaAtual, this.filtro).subscribe({
+        next: (callback) => {
+          const LembretesProxPage = callback;
+          this.listaLembretes.push(...LembretesProxPage);
+          if (!LembretesProxPage.length) {
+            this.haMaisLembretes = false;
+          }
         }
       });
   }

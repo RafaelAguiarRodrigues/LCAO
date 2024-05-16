@@ -14,7 +14,7 @@ export class LembreteService {
 
   listar(pagina: number, filtro: string): Observable<Lembrete[]> {
     const itensPorPagina = 8;
-    let params = new HttpParams().set('pagina', pagina.toString()).set('limit', itensPorPagina.toString());
+    let params = new HttpParams().set('pagina', pagina).set('limit', itensPorPagina);
 
     if (filtro.trim().length > 2) {
       params = params.set('filtro', filtro);
@@ -24,7 +24,7 @@ export class LembreteService {
   }
 
   criar(lembrete: Lembrete): Observable<Lembrete> {
-    return this.http.post<Lembrete>(this.API, lembrete);
+    return this.http.post<Lembrete>(`${this.API}/lembrete`, lembrete);
   }
 
   editar(lembrete: Lembrete): Observable<Lembrete> {
