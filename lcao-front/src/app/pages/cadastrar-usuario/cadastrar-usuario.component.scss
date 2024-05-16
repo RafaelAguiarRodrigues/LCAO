@@ -3,75 +3,74 @@
 .criar-usuario {
   padding: 2rem 0;
 
-  .header h2 {
-    text-align: center;
-    margin: 1em auto;
+  .header {
+    h2 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: 1em auto;
+      text-align: center;
+    }
   }
 
   form {
-    background: linear-gradient(
-      to right,
-      rgba(255, 0, 0, 0.69) 40%,
-      $vermelho 60%
-    );
-    border: none;
+    background: $branco;
+    // border: 1px solid $vermelho;
+    box-shadow: 3px 3px 5px $vermelho;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     padding: 2rem;
 
     label {
-      color: $branco;
+      font-size: 0.8em;
       font-weight: bold;
       margin: 0 0 1rem;
     }
 
     .input {
       border: none;
-      height: 40px;
-      padding: 1rem 2rem;
       border-radius: 20px;
+      box-shadow: 0px 0px 3px $preto;
+      height: 30px;
+      padding: 1rem 1.5rem;
       margin: 0.5rem 0 2rem;
     }
 
     .acoes {
-      display: flex;
-      justify-content: center;
       align-items: center;
       align-content: center;
+      display: flex;
+      justify-content: center;
 
       .botao {
         margin: 5px;
         margin-top: 70px;
         width: 200px;
-      }
 
-      .botao__desabilitado {
-        background-color: #483d3d;
-        margin: 5px;
-        margin-top: 70px;
-        width: 200px;
+        &__desabilitado {
+          background-color: #483d3d;
+        }
+      }
+    }
+
+    .mensagem__login {
+      color: $preto;
+      margin: 2em auto;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
 }
 
 .mensagem__erro {
-  color: $branco;
+  color: $vermelho;
   font-size: 12px;
   font-weight: bold;
   margin-left: 5px;
   margin-top: -25px;
   margin-bottom: 20px;
-}
-
-.mensagem__login {
-  color: $branco;
-  margin: 2em auto;
-  text-align: center;
-  text-decoration: underline;
-}
-
-.mensagem__login:hover {
-  font-weight: bold;
 }

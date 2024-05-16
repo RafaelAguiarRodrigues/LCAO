@@ -1,4 +1,4 @@
-<section class="container criar-usuario">
+<section class="container logar-usuario">
   <header class="header">
     <h2>Faça seu login:</h2>
   </header>
@@ -25,7 +25,8 @@
 
     <div class="acoes">
       <button (click)="cancelar()" class="botao">Voltar</button>
-      <button (click)="loginUsuario()" class="botao" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Entrar</button>
+      <button (click)="loginUsuario()" class="botao" [disabled]="!formulario.valid"
+        [ngClass]="habilitarBotao()">Entrar</button>
     </div>
     <a routerLink="/cadastrarUsuario" class="mensagem__cadastrar">Ainda não tem uma conta? crie aqui</a>
   </form>

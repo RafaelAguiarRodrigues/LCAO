@@ -32,7 +32,7 @@
     </div>
 
     <div class="acoes">
-      <button (click)="criarUsuario()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Cadastrar</button>
+      <button (click)="criarUsuario()" class="botao" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Cadastrar</button>
       <button (click)="cancelar()" class="botao">Voltar</button>
     </div>
     <a routerLink="/login" class="mensagem__login">Já tem uma conta? Então façã login</a>

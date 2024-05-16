@@ -1,11 +1,15 @@
 @import "../../../styles.scss";
 
-.criar-usuario {
+.logar-usuario {
   padding: 2rem 0;
 
-  .header h2 {
-    text-align: center;
-    margin: 1em auto;
+  .header {
+    h2 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: 1em auto;
+      text-align: center;
+    }
   }
 
   form {
