@@ -20,8 +20,8 @@ export class LoginUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       nome: [null],
-      email: [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.email])],
-      senha: [null, Validators.compose([Validators.required, Validators.minLength(5)])]
+      email: [null, [Validators.required, Validators.minLength(6), Validators.email]],
+      senha: [null, [Validators.required, Validators.minLength(5)]]
     });
   }
 
@@ -44,7 +44,7 @@ export class LoginUsuarioComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigate((['./listarLembrete']));
+    this.router.navigate(['/listarLembrete']);
   }
 
   habilitarBotao() {

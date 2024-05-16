@@ -13,17 +13,103 @@ $vermelho-escuro: #970000;
 $azul: rgb(0, 149, 255);
 $azul-escuro: rgb(0, 55, 95);
 
-* {
+/* reset css */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
+/* estilo padrozinado */
 body {
   font-family: "Montserrat", sans-serif;
 }
 
 main {
-  min-height: 60vh;
+  min-height: 100vh;
 }
 
 ol,
@@ -32,59 +118,45 @@ ul {
 }
 
 .botao {
-  background-color: $azul;
-  border: 1px solid $branco;
+  background-color: $branco;
+  border: 1px solid $vermelho;
   border-radius: 14px;
-  color: $branco;
+  color: $preto;
+  font-weight: bold;
   margin: 1em;
   padding: 1em;
   transition: 0.5s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $vermelho-escuro;
+  }
 }
 
 .botao__desabilitado {
   background-color: $cinza;
   border: 1px solid $branco;
-  border-radius: 14px;
   color: $branco;
-  margin: 1em;
-  padding: 1em;
   transition: 0.5s ease;
 }
 
-.botao:hover {
-  cursor: pointer;
-  background-color: $azul-escuro;
-}
-
 .container {
-  padding-right: 1rem;
-  padding-left: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-right: auto;
-  margin-left: auto;
-}
+  padding: 1rem;
+  margin: 0 auto;
 
-@media (min-width: 576px) {
-  .container {
+  @media (min-width: 576px) {
     width: 540px;
   }
-}
 
-@media (min-width: 768px) {
-  .container {
+  @media (min-width: 768px) {
     width: 720px;
   }
-}
 
-@media (min-width: 992px) {
-  .container {
+  @media (min-width: 992px) {
     width: 960px;
   }
-}
 
-@media (min-width: 1200px) {
-  .container {
+  @media (min-width: 1200px) {
     width: 1140px;
   }
 }
