@@ -6,7 +6,7 @@ import { Lembrete } from 'src/app/core/types/lembrete';
 @Component({
   selector: 'app-excluir-lembrete',
   templateUrl: './excluir-lembrete.component.html',
-  styleUrls: ['./excluir-lembrete.component.css']
+  styleUrls: ['./excluir-lembrete.component.scss']
 })
 export class ExcluirLembreteComponent implements OnInit {
   lembrete: Lembrete = {

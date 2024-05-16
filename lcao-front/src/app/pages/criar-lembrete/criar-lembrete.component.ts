@@ -8,7 +8,7 @@ import { dataLembreteValidator } from 'src/app/shared/validators/data-lembrete-v
 @Component({
   selector: 'app-criar-lembrete',
   templateUrl: './criar-lembrete.component.html',
-  styleUrls: ['./criar-lembrete.component.css']
+  styleUrls: ['./criar-lembrete.component.scss']
 })
 export class CriarLembreteComponent implements OnInit {
   formulario!: FormGroup;

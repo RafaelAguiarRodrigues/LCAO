@@ -6,7 +6,7 @@ import { Lembrete } from 'src/app/core/types/lembrete';
 @Component({
   selector: 'app-lembrete',
   templateUrl: './lembrete.component.html',
-  styleUrls: ['./lembrete.component.css']
+  styleUrls: ['./lembrete.component.scss']
 })
 export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() lembrete: Lembrete = {

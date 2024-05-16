@@ -7,7 +7,7 @@ import { Usuario } from 'src/app/core/types/usuario';
 @Component({
   selector: 'app-login-usuario',
   templateUrl: './login-usuario.component.html',
-  styleUrls: ['./login-usuario.component.css']
+  styleUrls: ['./login-usuario.component.scss']
 })
 export class LoginUsuarioComponent implements OnInit {
   formulario!: FormGroup;

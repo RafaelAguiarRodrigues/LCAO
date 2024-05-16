@@ -5,7 +5,7 @@ import { UsuarioService } from 'src/app/core/services/usuario.service';
 @Component({
   selector: 'app-sair-usuario',
   templateUrl: './sair-usuario.component.html',
-  styleUrls: ['./sair-usuario.component.css']
+  styleUrls: ['./sair-usuario.component.scss']
 })
 export class SairUsuarioComponent {
 

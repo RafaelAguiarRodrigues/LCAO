@@ -10,7 +10,7 @@ const DELAY = 300;
 @Component({
   selector: 'app-listar-lembrete',
   templateUrl: './listar-lembrete.component.html',
-  styleUrls: ['./listar-lembrete.component.css']
+  styleUrls: ['./listar-lembrete.component.scss']
 })
 export class ListarLembreteComponent implements OnInit, OnDestroy {
   listaLembretes: Lembrete[] = [];

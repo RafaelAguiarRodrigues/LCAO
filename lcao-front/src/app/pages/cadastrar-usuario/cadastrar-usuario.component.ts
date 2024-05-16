@@ -6,7 +6,7 @@ import { AutenticacaoService } from 'src/app/core/services/autenticacao.service'
 @Component({
   selector: 'app-cadastrar-usuario',
   templateUrl: './cadastrar-usuario.component.html',
-  styleUrls: ['./cadastrar-usuario.component.css']
+  styleUrls: ['./cadastrar-usuario.component.scss']
 })
 export class CadastrarUsuarioComponent implements OnInit {
   formulario!: FormGroup;

@@ -8,7 +8,7 @@ import { dataLembreteValidator } from "src/app/shared/validators/data-lembrete-v
 @Component({
   selector: 'app-editar-lembrete',
   templateUrl: './editar-lembrete.component.html',
-  styleUrls: ['./editar-lembrete.component.css']
+  styleUrls: ['./editar-lembrete.component.scss']
 })
 export class EditarLembreteComponent implements OnInit {
   lembrete: Lembrete = {
