@@ -14,9 +14,9 @@ const DELAY = 300;
 })
 export class ListarLembreteComponent implements OnInit, OnDestroy {
   listaLembretes: Lembrete[] = [];
-  paginaAtual: number = 0;
-  haMaisLembretes: boolean = true;
-  filtro: string = '';
+  paginaAtual = 0;
+  haMaisLembretes = true;
+  filtro = '';
   subscription: Subscription;
   campoBusca: FormControl = new FormControl('');
 
@@ -26,7 +26,7 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
         this.listaLembretes = callback;
         console.log(callback);
       },
-      error: (err) => {
+      error: () => {
         alert("Erro ao listar Lembretes!");
       }
     });

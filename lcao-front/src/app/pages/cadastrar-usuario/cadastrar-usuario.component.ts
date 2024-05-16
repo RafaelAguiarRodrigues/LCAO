@@ -14,9 +14,9 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
-      nome: [null, Validators.compose([Validators.required, Validators.minLength(4)])],
-      email: [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.email])],
-      senha: [null, Validators.compose([Validators.required, Validators.minLength(5)])]
+      nome: [null, [Validators.required, Validators.minLength(4)]],
+      email: [null, [Validators.required, Validators.minLength(6), Validators.email]],
+      senha: [null, [Validators.required, Validators.minLength(5)]]
     })
   }
 

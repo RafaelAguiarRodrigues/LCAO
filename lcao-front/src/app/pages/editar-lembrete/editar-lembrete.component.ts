@@ -65,9 +65,8 @@ export class EditarLembreteComponent implements OnInit {
         modelo: this.formulario.controls['modelo']?.value,
         usuario_id: ''
       }
-    }
-    if (this.formulario && this.formulario.valid) {
-      this.service.editar(this.formulario.value).subscribe(() => {
+
+      this.service.editar(lembrete).subscribe(() => {
         this.router.navigate(['/listarLembrete']);
       });
     }

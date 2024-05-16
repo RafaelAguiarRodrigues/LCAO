@@ -21,7 +21,7 @@ export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
 
   intervalo: Subscription | undefined;
   audioPlayer: HTMLAudioElement | undefined;
-  audioLoaded: boolean = false;
+  audioLoaded = false;
 
   constructor(private datePipe: DatePipe) { }
 
@@ -65,14 +65,14 @@ export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
     return 'lembrete-p';
   }
 
-  playAudio() {
+  private playAudio() {
     if (this.audioPlayer && this.audioLoaded) {
       this.audioPlayer.loop = true;
       this.audioPlayer.play();
     }
   }
 
-  pauseAudio() {
+  private pauseAudio() {
     if (this.audioPlayer) {
       this.audioPlayer.pause();
       this.audioPlayer.currentTime = 0;
