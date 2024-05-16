@@ -3,17 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Usuario } from '../types/usuario';
 import { UsuarioService } from './usuario.service';
+import { environment } from 'src/environments/environment.development';
 
 interface AuthResponse {
   access_token: string,
-  usuario: Usuario
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
-  private readonly API = 'http://localhost:8080/usuario';
+  private readonly API = environment.API;
 
   constructor(
     private http: HttpClient,
@@ -25,7 +25,7 @@ export class AutenticacaoService {
   }
 
   autenticar(usuario: Usuario): Observable<HttpResponse<AuthResponse>> {
-    return this.http.post<AuthResponse>(`${this.API}/logar`, usuario, { observe: 'response' })
+    return this.http.post<AuthResponse>(`${this.API}/usuario/logar`, usuario, { observe: 'response' })
       .pipe(
         tap(
           (response) => {

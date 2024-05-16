@@ -34,12 +34,4 @@ export class CadastrarUsuarioComponent implements OnInit {
   cancelar() {
     this.router.navigate((['./login']));
   }
-
-  habilitarBotao() {
-    if (this.formulario.valid) {
-      return 'botao'
-    } else {
-      return 'botao__desabilitado'
-    }
-  }
 }

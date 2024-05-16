@@ -131,13 +131,19 @@ ul {
     cursor: pointer;
     background-color: $vermelho-escuro;
   }
-}
 
-.botao__desabilitado {
-  background-color: $cinza;
-  border: 1px solid $branco;
-  color: $branco;
-  transition: 0.5s ease;
+  &:disabled {
+    background-color: $cinza;
+    border: 1px solid $branco;
+    color: $branco;
+    cursor: default;
+    transition: 0.5s ease;
+  }
+
+  &:focus {
+    border: 1px solid $vermelho-escuro;
+    box-shadow: 0 0 5px rgba(84, 84, 197, 0.5);
+  }
 }
 
 .container {

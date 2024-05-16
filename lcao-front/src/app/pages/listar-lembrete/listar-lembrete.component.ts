@@ -24,7 +24,6 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
     this.subscription = this.service.listar(this.paginaAtual, this.filtro).subscribe({
       next: (callback) => {
         this.listaLembretes = callback;
-        console.log(callback);
       },
       error: () => {
         alert("Erro ao listar Lembretes!");
