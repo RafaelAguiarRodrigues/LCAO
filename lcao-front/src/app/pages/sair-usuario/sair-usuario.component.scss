@@ -1,6 +1,8 @@
+@import '../../../styles.scss';
+
 .modal {
-  background: var(--branco);
-  box-shadow: 7px 8px 0px 0px var(--vermelho-escuro);
+  background: $branco;
+  box-shadow: 7px 8px 0px 0px $vermelho-escuro;
   min-width: 360px;
   min-height: 150px;
   position: fixed;
@@ -15,7 +17,7 @@
 }
 
 .overlay {
-  background: var(--preto);
+  background: $preto;
   height: 100vh;
   left: 0;
   opacity: 0.5;

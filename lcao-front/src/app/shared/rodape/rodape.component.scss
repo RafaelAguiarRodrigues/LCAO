@@ -1,14 +1,20 @@
+@import "../../../styles.scss";
+
 .rodape {
   align-items: center;
-  background-image: linear-gradient(to right, var(--vermelho) 40%, var(--vermelho-escuro) 60%);
-  border-top: 1px solid var(--cinza);
+  background-image: linear-gradient(
+    to right,
+    $vermelho 40%,
+    $vermelho-escuro 60%
+  );
+  border-top: 1px solid $cinza;
   display: flex;
   justify-content: center;
   padding: 3em 5em;
 }
 
 .rodape p {
-  color: white;
+  color: $branco;
   font-size: 12px;
   font-style: italic;
 }

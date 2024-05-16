@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .header h2 {
   text-align: center;
 }
@@ -20,7 +22,11 @@
 }
 
 .criar-lembretes form {
-  background: linear-gradient(to right, rgba(255, 62, 62, 0.69) 40%, rgba(255, 0, 0, 0.764) 60%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 62, 62, 0.69) 40%,
+    rgba(255, 0, 0, 0.764) 60%
+  );
   border: none;
   border-radius: 20px;
   display: flex;
@@ -29,7 +35,7 @@
 }
 
 .criar-lembretes form label {
-  color: var(--vermelho-escuro);
+  color: $vermelho-escuro;
   font-weight: bold;
   margin: 0 0 1rem;
 }
@@ -41,7 +47,6 @@
   border-radius: 20px;
   margin: 0.5rem 0 2rem;
 }
-
 
 .criar-lembretes form .textarea {
   border: none;
@@ -63,7 +68,7 @@
 }
 
 .modelo {
-  background-color: #F8F9FE;
+  background-color: #f8f9fe;
   padding: 1rem;
   max-width: 250px;
   margin: 1rem 0 2rem;
@@ -94,7 +99,7 @@
 }
 
 .modelo1 {
-  box-shadow: 8px 8px 0px var(--vermelho-escuro);
+  box-shadow: 8px 8px 0px $vermelho-escuro;
 }
 
 .modelo2 {
@@ -105,18 +110,19 @@
   box-shadow: 8px 8px 0px #84ee89;
 }
 
-input[type='radio'] {
+input[type="radio"] {
   display: none;
 }
 
-.radio-modelo label, .radio-prioridade label {
+.radio-modelo label,
+.radio-prioridade label {
   display: flex;
   align-items: center;
   column-gap: 20px;
 }
 
 .custom-radio {
-  border: 1px solid var(--vermelho-escuro);
+  border: 1px solid $vermelho-escuro;
   width: 30px;
   height: 30px;
   display: grid;
@@ -127,23 +133,23 @@ input[type='radio'] {
 .custom-radio,
 span {
   transition: 0.5s ease;
-  color: var(--vermelho-escuro);
+  color: $vermelho-escuro;
 }
 
 .custom-radio span {
-  content: '';
+  content: "";
   width: 18px;
   height: 18px;
   background: transparent;
   border-radius: 50%;
 }
 
-input[type='radio']:checked+.custom-radio {
-  border-color: var(--vermelho-escuro);
+input[type="radio"]:checked + .custom-radio {
+  border-color: $vermelho-escuro;
 }
 
-input[type='radio']:checked+.custom-radio span {
-  background: var(--vermelho-escuro);
+input[type="radio"]:checked + .custom-radio span {
+  background: $vermelho-escuro;
 }
 
 .botao__desabilitado {
@@ -154,7 +160,7 @@ input[type='radio']:checked+.custom-radio span {
 }
 
 .mensagem__erro {
-  color: var(--branco);
+  color: $branco;
   font-size: 12px;
   font-weight: bold;
   margin-left: 5px;

@@ -1,12 +1,14 @@
+@import '../../../styles.scss';
+
 .listaLembrete {
-  background: var(--branco);
+  background: $branco;
   min-height: 100vh;
   padding: 2em 0;
   text-align: center;
 }
 
 .cabecalho__titulo {
-  color: var(--preto);
+  color: $preto;
   padding: 2em 0;
 }
 
@@ -19,7 +21,7 @@
 }
 
 .sem-Lembretes {
-  color: var(--preto);
+  color: $preto;
   margin: 30vh 0;
   text-align: center;
 }
@@ -34,7 +36,7 @@
 .buscar-lembretes {
   background: #F8F9FE;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.188);
-  border: 1px solid var(--cinza);
+  border: 1px solid $cinza;
   border-radius: 10px;
   display: flex;
   height: 44px;

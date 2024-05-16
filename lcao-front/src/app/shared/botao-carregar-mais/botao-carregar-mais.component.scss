@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .carregar-mais {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -7,12 +9,12 @@
   justify-content: center;
 }
 .mensagem-center {
-  color: var(--preto);
+  color: $preto;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 p {
-  color: var(--branco);
+  color: $branco;
 }

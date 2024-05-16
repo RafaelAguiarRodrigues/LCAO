@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/core/services/autenticacao.service';
-import { Usuario } from 'src/app/core/types/usuario';
 
 @Component({
   selector: 'app-login-usuario',
@@ -31,10 +30,11 @@ export class LoginUsuarioComponent implements OnInit {
       this.service.autenticar(this.formulario.value).subscribe({
         next: (resp) => {
           if (resp) {
-            this.router.navigate((['./listarLembrete']));
+            this.router.navigate(['/listarLembrete']);
             alert(`Bem-vindo!`);
+          } else {
+            alert("Usuário/senha inválidos!");
           }
-          alert("Usuario/senha inválidos!")
         },
         error: () => {
           alert('Erro ao Logar!');

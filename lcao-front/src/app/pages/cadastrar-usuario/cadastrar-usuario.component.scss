@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 .header h2 {
   text-align: center;
   margin: 1em auto;
@@ -21,7 +23,11 @@
 }
 
 .criar-usuario form {
-  background: linear-gradient(to right, rgba(255, 0, 0, 0.69) 40%, var(--vermelho) 60%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.69) 40%,
+    $vermelho 60%
+  );
   border: none;
   border-radius: 20px;
   display: flex;
@@ -30,7 +36,7 @@
 }
 
 .criar-usuario form label {
-  color: var(--branco);
+  color: $branco;
   font-weight: bold;
   margin: 0 0 1rem;
 }
@@ -42,7 +48,6 @@
   border-radius: 20px;
   margin: 0.5rem 0 2rem;
 }
-
 
 .criar-usuario form .textarea {
   border: none;
@@ -61,18 +66,19 @@
   margin: 0;
 }
 
-input[type='radio'] {
+input[type="radio"] {
   display: none;
 }
 
-.radio-modelo label, .radio-prioridade label {
+.radio-modelo label,
+.radio-prioridade label {
   display: flex;
   align-items: center;
   column-gap: 20px;
 }
 
 .custom-radio {
-  border: 1px solid var(--vermelho-escuro);
+  border: 1px solid $vermelho-escuro;
   width: 30px;
   height: 30px;
   display: grid;
@@ -83,11 +89,11 @@ input[type='radio'] {
 .custom-radio,
 span {
   transition: 0.5s ease;
-  color: var(--vermelho-escuro);
+  color: $vermelho-escuro;
 }
 
 .custom-radio span {
-  content: '';
+  content: "";
   width: 18px;
   height: 18px;
   background: transparent;
@@ -102,7 +108,7 @@ span {
 }
 
 .mensagem__erro {
-  color: var(--branco);
+  color: $branco;
   font-size: 12px;
   font-weight: bold;
   margin-left: 5px;
@@ -111,7 +117,7 @@ span {
 }
 
 .mensagem__login {
-  color: var(--branco);
+  color: $branco;
   margin: 2em auto;
   text-align: center;
   text-decoration: underline;

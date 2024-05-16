@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .acoes {
   display: flex;
   justify-content: flex-end
@@ -46,7 +48,7 @@
 }
 
 .modelo1 {
-  box-shadow: 8px 8px 1px var(--vermelho-escuro);
+  box-shadow: 8px 8px 1px $vermelho-escuro;
 }
 
 .modelo2 {

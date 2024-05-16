@@ -1,7 +1,13 @@
+@import "../../../styles.scss";
+
 .cabecalho {
   align-items: center;
-  background-image: linear-gradient(to right, var(--vermelho) 40%, var(--vermelho-escuro) 60%);
-  border-bottom: 1px solid var(--cinza);
+  background-image: linear-gradient(
+    to right,
+    $vermelho 40%,
+    $vermelho-escuro 60%
+  );
+  border-bottom: 1px solid $cinza;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -9,8 +15,8 @@
 }
 
 .cabecalho__titulo {
-  color: white;
-  font-family: var(--fonte-titulo);
+  color: $branco;
+  font-family: $fonte-titulo;
   font-size: 3em;
   font-weight: bold;
 }
@@ -23,7 +29,7 @@
 }
 
 .nav__link {
-  color: var(--branco);
+  color: $branco;
   padding-right: 2em;
   text-decoration: none;
 }
