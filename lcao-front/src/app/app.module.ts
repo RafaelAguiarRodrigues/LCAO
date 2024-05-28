@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,25 +10,14 @@ import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interc
 import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
 import { CriarLembreteComponent } from './pages/listar-lembrete/criar-lembrete/criar-lembrete.component';
 import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete/editar-lembrete.component';
-import { ExcluirLembreteComponent } from './shared/excluir-lembrete/excluir-lembrete.component';
 import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
-import { BotaoCarregarMaisComponent } from './shared/botao-carregar-mais/botao-carregar-mais.component';
-import { CabecalhoComponent } from './shared/cabecalho/cabecalho.component';
-import { LembreteComponent } from './shared/lembrete/lembrete.component';
-import { RodapeComponent } from './shared/rodape/rodape.component';
-import { SairUsuarioComponent } from './shared/sair-usuario/sair-usuario.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CabecalhoComponent,
-    RodapeComponent,
-    LembreteComponent,
     ListarLembreteComponent,
-    ExcluirLembreteComponent,
-    SairUsuarioComponent,
-    BotaoCarregarMaisComponent,
     CriarLembreteComponent,
     EditarLembreteComponent,
     CadastrarUsuarioComponent,
@@ -37,11 +26,11 @@ import { SairUsuarioComponent } from './shared/sair-usuario/sair-usuario.compone
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [
     DatePipe,
