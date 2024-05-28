@@ -18,7 +18,7 @@
     align-items: center;
     align-self: center;
     text-align: center;
-    width: 510px;
+    width: 35vw;
 
     .filtro {
       border: none;
@@ -87,20 +87,33 @@
 @media screen and (min-width: 216px) {
   .buscar-lembretes {
     margin: 0 auto;
-    width: 250px;
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 396px) {
   .buscar-lembretes {
     margin: 0 auto;
-    width: 380px;
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 576px) {
   .buscar-lembretes {
     margin: 0 auto;
-    width: 510px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .buscar-lembretes {
+    margin: 0 auto;
+    width: 80vw;
+  }
+}
+@media screen and (min-width: 576px) {
+  .buscar-lembretes {
+    margin: 0 auto;
+    width: 490px;
   }
 }

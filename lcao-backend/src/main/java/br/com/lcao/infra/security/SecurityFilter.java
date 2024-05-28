@@ -26,7 +26,6 @@ public class SecurityFilter extends OncePerRequestFilter {
         var token = this.recoverToken(request);
 
         if(token != null){
-            System.out.println("Tem token!");
             var usuarioId = tokenService.validateToken(token);
             Usuario usuario = (Usuario) authService.loadUserByUsername(usuarioId);
 

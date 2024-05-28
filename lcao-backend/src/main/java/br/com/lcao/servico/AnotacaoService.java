@@ -1,2 +1,7 @@
-package br.com.lcao.servico;public class AnotacaoService {
+package br.com.lcao.servico;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class AnotacaoService {
 }
