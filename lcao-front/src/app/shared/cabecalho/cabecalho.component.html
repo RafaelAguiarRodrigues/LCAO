@@ -1,8 +1,18 @@
 <header class="cabecalho">
-  <h1 class="cabecalho__titulo">LCAO</h1>
+  <div class="cabecalho__menu-hamburguer">
+    <img src="../../../../assets/imagens/menu.svg" alt="menu hamburguer">
+  </div>
+  <div class="cabecalho__titulo">
+    <h1>LCAO</h1>
+  </div>
   <nav class="cabecalho__nav">
     <a routerLink="/listarLembrete" class="nav__link">Home</a>
-    <a routerLink="/login" class="nav__link">Cadastrar/Login</a>
-    <a routerLink="/sair" class="nav__link">Sair</a>
+    <ng-container *ngIf="user$ | async as Usuario else login">
+      <a href="#" class="nav__link">Meu usuário</a>
+      <a routerLink="/sair" class="nav__link">Sair</a>
+    </ng-container>
+    <ng-template #login>
+      <a routerLink="/login" class="nav__link">Cadastrar/Login</a>
+    </ng-template>
   </nav>
 </header>

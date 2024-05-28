@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 .criar-lembretes {
   padding: 2rem 0;
@@ -68,7 +68,7 @@
 }
 
 .modelo {
-  background: #ebedf1;
+  background: $branco;
   border: 1px solid $cinza;
   padding: 1rem;
   max-width: 250px;

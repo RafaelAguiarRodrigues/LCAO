@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
-import { CriarLembreteComponent } from './pages/criar-lembrete/criar-lembrete.component';
-import { EditarLembreteComponent } from './pages/editar-lembrete/editar-lembrete.component';
-import { ExcluirLembreteComponent } from './pages/excluir-lembrete/excluir-lembrete.component';
+import { CriarLembreteComponent } from './pages/listar-lembrete/criar-lembrete/criar-lembrete.component';
+import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete/editar-lembrete.component';
+import { ExcluirLembreteComponent } from './pages/listar-lembrete/excluir-lembrete/excluir-lembrete.component';
 import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
 import { SairUsuarioComponent } from './pages/sair-usuario/sair-usuario.component';
