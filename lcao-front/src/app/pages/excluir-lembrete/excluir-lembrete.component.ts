@@ -19,7 +19,11 @@ export class ExcluirLembreteComponent implements OnInit {
     usuario_id: ''
   };
 
-  constructor(private service: LembreteService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private service: LembreteService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id') as string;

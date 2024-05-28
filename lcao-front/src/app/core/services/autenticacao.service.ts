@@ -21,11 +21,11 @@ export class AutenticacaoService {
   ) { }
 
   cadastrar(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.API, usuario);
+    return this.http.post<Usuario>(`${this.API}/auth/register`, usuario);
   }
 
   autenticar(usuario: Usuario): Observable<HttpResponse<AuthResponse>> {
-    return this.http.post<AuthResponse>(`${this.API}/usuario/logar`, usuario, { observe: 'response' })
+    return this.http.post<AuthResponse>(`${this.API}/auth/login`, usuario, { observe: 'response' })
       .pipe(
         tap(
           (response) => {

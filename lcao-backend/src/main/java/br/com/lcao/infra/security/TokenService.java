@@ -16,21 +16,29 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
-    public String generateToken(Usuario usuario){
+    public String generateToken(Usuario usuario) {
         try {
             Algorithm algoritmo = Algorithm.HMAC256(secret);
-            String token = JWT.create()
+            return JWT.create()
                     .withIssuer("LCAO-API")
                     .withSubject(usuario.getEmail())
                     .withExpiresAt(genExpirationDate())
                     .sign(algoritmo);
-            return token;
         } catch (JWTCreationException ex) {
             throw new RuntimeException("Erro enquanto o token foi gerado", ex);
         }
     }
 
-    private Instant genExpirationDate(){
+    public String validateToken(String token) {
+        Algorithm algoritmo = Algorithm.HMAC256(secret);
+        return JWT.require(algoritmo)
+                .withIssuer("LCAO-API")
+                .build()
+                .verify(token)
+                .getSubject();
+    }
+
+    private Instant genExpirationDate() {
         return LocalDateTime.now().plusHours(12).toInstant(ZoneOffset.of("-03:00"));
     }
 }
