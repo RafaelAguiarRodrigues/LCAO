@@ -27,16 +27,9 @@ export class CriarLembreteComponent implements OnInit {
 
   criarLembrete() {
     if (this.formulario.valid) {
-      const lembrete: Lembrete = {
-        titulo: this.formulario.value.titulo,
-        descricao: this.formulario.value.descricao,
-        data: this.formulario.value.data,
-        prioridade: this.formulario.value.prioridade,
-        modelo: this.formulario.value.modelo,
-        usuario_id: ''
-      };
+      const novoLembrete = this.formulario.getRawValue() as Lembrete;
 
-      this.service.criar(lembrete).subscribe({
+      this.service.criar(novoLembrete).subscribe({
         next: () => {
           this.router.navigate(['./listarLembrete']);
         }

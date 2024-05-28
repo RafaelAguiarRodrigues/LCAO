@@ -9,10 +9,14 @@
     <a routerLink="/listarLembrete" class="nav__link">Home</a>
     <ng-container *ngIf="user$ | async as Usuario else login">
       <a href="#" class="nav__link">Meu usuário</a>
-      <a routerLink="/sair" class="nav__link">Sair</a>
+      <a class="nav__link" (click)="openModalSair()">Sair</a>
     </ng-container>
     <ng-template #login>
       <a routerLink="/login" class="nav__link">Cadastrar/Login</a>
     </ng-template>
   </nav>
 </header>
+<app-sair-usuario
+  [isVisible]="isModalSairVisible"
+  (visibilityChange)="handleVisibilityChange($event)">
+</app-sair-usuario>

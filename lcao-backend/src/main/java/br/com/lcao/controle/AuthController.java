@@ -11,10 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("auth")
@@ -45,6 +42,20 @@ public class AuthController {
         Usuario novoUsuario = new Usuario(usuario.getNome(), usuario.getEmail(), encryptedPassword);
 
         this.usuarioReposotorio.save(novoUsuario);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Usuario> editar(@PathVariable("id") String id, @RequestBody Usuario usuario) {
+        if(this.usuarioReposotorio.findByEmail(usuario.getEmail()) != null){
+            return ResponseEntity.badRequest().build();
+        }
+
+        String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.getSenha());
+        Usuario usuarioAtualizado = new Usuario(usuario.getNome(), usuario.getEmail(), encryptedPassword);
+
+        this.usuarioReposotorio.save(usuarioAtualizado);
 
         return ResponseEntity.ok().build();
     }

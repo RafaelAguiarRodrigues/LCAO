@@ -6,8 +6,10 @@
   <div class="acoes">
     <button class="botao-editar" routerLink="/lembretes/editarLembrete/{{ lembrete.id }}"><img
         src="../../../../assets/imagens/icone-atualizar.svg" alt="Icone de editar"></button>
-    <button class="botao-excluir" routerLink="/lembretes/excluirLembrete/{{ lembrete.id }}"><img
-        src="../../../../assets/imagens/icone-deletar.svg" alt="Icone de excluir"></button>
+    <button class="botao-excluir" (click)="openModalExcluir()"><img src="../../../../assets/imagens/icone-deletar.svg"
+        alt="Icone de excluir"></button>
   </div>
 </div>
+<app-excluir-lembrete [id]="lembrete.id" [isVisible]="isExcluirVisible"
+  (visibilityChange)="handleVisibilityChange($event)"></app-excluir-lembrete>
 <audio id="audioPlayer" src="assets/sounds/sounds_keyx.wav"></audio>

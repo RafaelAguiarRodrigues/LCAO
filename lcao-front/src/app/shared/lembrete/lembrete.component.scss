@@ -1,24 +1,5 @@
 @import "../../../styles.scss";
 
-.acoes {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.botao-excluir {
-  border: none;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 10px;
-}
-
-.botao-editar {
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
 .modelo,
 .modelo1,
 .modelo2,
@@ -47,6 +28,39 @@
     text-transform: uppercase;
     word-wrap: break-word;
   }
+
+  .acoes {
+    display: flex;
+    justify-content: flex-end;
+
+    .botao-editar,
+    .botao-excluir {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .botao-excluir {
+      margin-left: 5px;
+    }
+
+    .botao-editar {
+      margin-right: 10px;
+    }
+  }
+}
+
+.modelo1 {
+  box-shadow: 8px 8px 1px $vermelho-escuro;
+}
+
+.modelo2 {
+  box-shadow: 8px 8px 1px #39b8f8;
+}
+
+.modelo3 {
+  box-shadow: 8px 8px 1px #84ee89;
 }
 
 .lembrete-g {
@@ -63,17 +77,4 @@
   @media screen and (max-width: 426px) {
     width: 100%;
   }
-}
-
-
-.modelo1 {
-  box-shadow: 8px 8px 1px $vermelho-escuro;
-}
-
-.modelo2 {
-  box-shadow: 8px 8px 1px #39b8f8;
-}
-
-.modelo3 {
-  box-shadow: 8px 8px 1px #84ee89;
 }

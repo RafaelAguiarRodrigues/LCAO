@@ -18,6 +18,7 @@ export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
     modelo: '',
     usuario_id: ''
   };
+  @Input() isExcluirVisible = false;
 
   intervalo: Subscription | undefined;
   audioPlayer: HTMLAudioElement | undefined;
@@ -77,5 +78,13 @@ export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
       this.audioPlayer.pause();
       this.audioPlayer.currentTime = 0;
     }
+  }
+
+  openModalExcluir() {
+    this.isExcluirVisible = true;
+  }
+
+  handleVisibilityChange(isVisible: boolean) {
+    this.isExcluirVisible = isVisible;
   }
 }

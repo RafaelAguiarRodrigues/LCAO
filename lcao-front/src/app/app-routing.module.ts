@@ -4,10 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
 import { CriarLembreteComponent } from './pages/listar-lembrete/criar-lembrete/criar-lembrete.component';
 import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete/editar-lembrete.component';
-import { ExcluirLembreteComponent } from './pages/listar-lembrete/excluir-lembrete/excluir-lembrete.component';
 import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
-import { SairUsuarioComponent } from './pages/sair-usuario/sair-usuario.component';
 
 const routes: Routes = [
   {
@@ -17,10 +15,6 @@ const routes: Routes = [
   {
     path: 'criarLembrete',
     component: CriarLembreteComponent
-  },
-  {
-    path: 'lembretes/excluirLembrete/:id',
-    component: ExcluirLembreteComponent
   },
   {
     path: 'lembretes/editarLembrete/:id',
@@ -33,10 +27,6 @@ const routes: Routes = [
   {
     path: 'cadastrarUsuario',
     component: CadastrarUsuarioComponent
-  },
-  {
-    path: 'sair',
-    component: SairUsuarioComponent
   },
   {
     path: '',

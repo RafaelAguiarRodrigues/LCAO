@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../styles.scss';
 
 .overlay {
   background: $preto;
@@ -11,9 +11,7 @@
   z-index: 10;
 }
 
-.excluir-lembretes {
-  padding: 10rem 0;
-
+.modal-container {
   .modal {
     background: $branco;
     box-shadow: 7px 8px 0px 0px $vermelho-escuro;
@@ -27,7 +25,6 @@
     z-index: 11;
     font-size: 1.5rem;
     text-align: center;
-    padding-top: 50px;
 
     .acoes {
       display: flex;

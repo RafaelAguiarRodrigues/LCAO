@@ -1,5 +1,5 @@
 export interface Lembrete {
-  id?: string;
+  id: string;
   titulo: string;
   descricao: string;
   prioridade: string;

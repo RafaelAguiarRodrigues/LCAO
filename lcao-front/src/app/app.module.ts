@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule, DatePipe } from '@angular/common';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CabecalhoComponent } from './shared/cabecalho/cabecalho.component';
-import { RodapeComponent } from './shared/rodape/rodape.component';
-import { LembreteComponent } from './shared/lembrete/lembrete.component';
-import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule, DatePipe } from '@angular/common';
-import { ExcluirLembreteComponent } from './pages/listar-lembrete/excluir-lembrete/excluir-lembrete.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { SairUsuarioComponent } from './pages/sair-usuario/sair-usuario.component';
-import { BotaoCarregarMaisComponent } from './shared/botao-carregar-mais/botao-carregar-mais.component';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
+import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
 import { CriarLembreteComponent } from './pages/listar-lembrete/criar-lembrete/criar-lembrete.component';
 import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete/editar-lembrete.component';
-import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';
+import { ExcluirLembreteComponent } from './shared/excluir-lembrete/excluir-lembrete.component';
+import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
-import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
+import { BotaoCarregarMaisComponent } from './shared/botao-carregar-mais/botao-carregar-mais.component';
+import { CabecalhoComponent } from './shared/cabecalho/cabecalho.component';
+import { LembreteComponent } from './shared/lembrete/lembrete.component';
+import { RodapeComponent } from './shared/rodape/rodape.component';
+import { SairUsuarioComponent } from './shared/sair-usuario/sair-usuario.component';
 
 @NgModule({
   declarations: [

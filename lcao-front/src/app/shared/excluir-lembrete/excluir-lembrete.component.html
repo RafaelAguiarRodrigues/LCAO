@@ -1,0 +1,10 @@
+<section class="modal-container" *ngIf="isVisible">
+  <div class="modal">
+    <p>O lembrete será deletado. <br /> Confirma a exclusão?</p>
+    <div class="acoes">
+      <button class="botao botao-cancelar" (click)="closeModal()">Cancelar</button>
+      <button class="botao botao-excluir" (click)="excluirLembrete()">Excluir</button>
+    </div>
+  </div>
+  <div class="overlay" (click)="closeModal()"></div>
+</section>
