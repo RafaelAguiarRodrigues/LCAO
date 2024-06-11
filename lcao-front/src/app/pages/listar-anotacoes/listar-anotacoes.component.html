@@ -1,0 +1,26 @@
+<section class="lista-anotacoes">
+  <header class="lista-anotacoes__cabecalho">
+    <div class="buscar-anotacoes">
+      <input type="search" class="filtro" name="filtro" id="filtro" placeholder="Procurando alguma anotação?" [formControl]="campoBusca">
+      <!-- <input type="search" class="filtro" name="filtro" id="filtro" placeholder="O que você procura?" autofocus [(ngModel)]="filtro" (input)="pesquisarLembretes()" [formControl]="campoBusca"> -->
+      <img src="assets/imagens/lupa.png" alt="Lupa preta">
+    </div>
+    <h2 class="cabecalho__titulo">Meu Mural</h2>
+    <button routerLink="/criarAnotacao" class="botao">Adicionar anotações</button>
+  </header>
+  <div class="mural" *ngIf="(lembretesEncontrados$ | async) as anotacoes; else semAnotacoes">
+    <ng-container *ngIf="anotacoes.length > 0; else semAnotacoes">
+      <div *ngFor="let anotacao of listaAnotacoes">
+        <!-- trocar para card de anotação: -->
+        <!-- <app-lembrete [lembrete]="anotacao"></app-lembrete> -->
+      </div>
+    </ng-container>
+  </div>
+  <app-botao-carregar-mais [haMaisLembretes]="haMaisLembretes"
+    (click)="carregarMaisLembretes()"></app-botao-carregar-mais>
+</section>
+<ng-template #semAnotacoes>
+  <div class="sem-anotacoes">
+    <p>Ainda não há anotações cadastradas!</p>
+  </div>
+</ng-template>

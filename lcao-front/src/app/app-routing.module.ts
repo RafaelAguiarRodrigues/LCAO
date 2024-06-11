@@ -6,6 +6,7 @@ import { CriarLembreteComponent } from './pages/listar-lembrete/criar-lembrete/c
 import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete/editar-lembrete.component';
 import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
+import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotacoes.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'lembretes/editarLembrete/:id',
     component: EditarLembreteComponent
+  },
+  {
+    path: 'listarAnotacoes',
+    component: ListarAnotacoesComponent
   },
   {
     path: 'login',

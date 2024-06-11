@@ -8,6 +8,7 @@ import { UsuarioService } from 'src/app/core/services/usuario.service';
 })
 export class CabecalhoComponent {
   isModalSairVisible: boolean = false;
+  isMenuAtivo = false;
 
   constructor(private userService: UsuarioService) {}
 
@@ -19,5 +20,13 @@ export class CabecalhoComponent {
 
   handleVisibilityChange(isVisible: boolean) {
     this.isModalSairVisible = isVisible;
+  }
+
+  toggle(menu: string) {
+    if (menu === 'mainMenu') {
+      this.isMenuAtivo = !this.isMenuAtivo;
+    } else if (menu === 'userMenu') {
+      this.isMenuAtivo = !this.isMenuAtivo;
+    }
   }
 }

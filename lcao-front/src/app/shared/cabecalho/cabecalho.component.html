@@ -1,6 +1,6 @@
 <header class="cabecalho">
   <div class="cabecalho__menu-hamburguer">
-    <img src="../../../../assets/imagens/menu.svg" alt="menu hamburguer">
+    <img src="../../../../assets/imagens/menu.svg" alt="menu hamburguer" (click)="toggle('mainMenu')">
   </div>
   <div class="cabecalho__titulo">
     <h1>LCAO</h1>
@@ -16,6 +16,7 @@
     </ng-template>
   </nav>
 </header>
+<app-menu-lateral [isMenuAtivo]="isMenuAtivo"></app-menu-lateral>
 <app-sair-usuario
   [isVisible]="isModalSairVisible"
   (visibilityChange)="handleVisibilityChange($event)">

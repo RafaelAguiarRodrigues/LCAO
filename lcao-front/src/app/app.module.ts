@@ -13,6 +13,7 @@ import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete
 import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
 import { SharedModule } from './shared/shared.module';
+import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotacoes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from './shared/shared.module';
     EditarLembreteComponent,
     CadastrarUsuarioComponent,
     LoginUsuarioComponent,
-    ListarLembreteComponent
+    ListarLembreteComponent,
+    ListarAnotacoesComponent
   ],
   imports: [
     BrowserModule,

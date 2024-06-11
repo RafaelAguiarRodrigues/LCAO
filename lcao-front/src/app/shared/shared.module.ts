@@ -8,6 +8,7 @@ import { RodapeComponent } from "./rodape/rodape.component";
 import { SairUsuarioComponent } from "./sair-usuario/sair-usuario.component";
 import { RouterModule } from "@angular/router";
 import { BotaoCarregarMaisComponent } from "./botao-carregar-mais/botao-carregar-mais.component";
+import { MenuLateralComponent } from './cabecalho/menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BotaoCarregarMaisComponent } from "./botao-carregar-mais/botao-carregar
     ExcluirLembreteComponent,
     SairUsuarioComponent,
     BotaoCarregarMaisComponent,
+    MenuLateralComponent,
   ],
   imports: [
     CommonModule,

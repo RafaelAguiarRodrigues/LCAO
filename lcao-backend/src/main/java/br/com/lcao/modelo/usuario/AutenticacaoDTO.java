@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class AutenticacaoDTO {
-    String email;
-    String senha;
+    private String email;
+    private String senha;
 }

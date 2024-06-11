@@ -3,7 +3,6 @@ package br.com.lcao.controle;
 import br.com.lcao.modelo.lembrete.Lembrete;
 import br.com.lcao.servico.LembreteServico;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,8 +37,8 @@ public class LembreteController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Lembrete> editar(@PathVariable("id") String id, @RequestBody Lembrete formulario) {
-        lembreteServico.editar(id, formulario);
+    public ResponseEntity<Lembrete> editar(@PathVariable("id") String id, @RequestBody Lembrete lembrete) {
+        lembreteServico.editar(id, lembrete);
         return ResponseEntity.ok().build();
     }
 

@@ -1,0 +1,52 @@
+@import "../../../../styles.scss";
+
+.menu-nav {
+  align-items: flex-start;
+  background: $vermelho;
+  border-top: 1px solid $branco;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  min-height: 120vh;
+  max-height: 500vh;
+  position: absolute;
+  transition: 0.5s;
+  overflow: hidden;
+  padding-bottom: 1em;
+  top: 105px;
+  width: 0;
+  z-index: 9999;
+
+  &__lista {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+    padding: 2em 1em;
+    width: 80%;
+
+    li {
+      border-bottom: 1px solid $branco;
+      margin: 1em 0 0;
+
+      a {
+        color: $branco;
+        text-decoration: none;
+      }
+    }
+  }
+
+  // menu ativo
+  &.active {
+    overflow-x: visible;
+    width: 20%;
+
+    @media screen and (max-width: 768px) {
+      width: 35vw;
+    }
+
+    @media screen and (max-width: 426px) {
+      width: 50vw;
+    }
+  }
+}

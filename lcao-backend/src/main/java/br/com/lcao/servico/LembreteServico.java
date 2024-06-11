@@ -4,7 +4,6 @@ import br.com.lcao.modelo.lembrete.Lembrete;
 import br.com.lcao.repositorio.LembreteReposotorio;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -36,7 +35,7 @@ public class LembreteServico {
         return lembreteReposotorio.findAll(pageable).getContent();
     }
 
-    public Lembrete editar(String id, Lembrete formulario) {
+    public void editar(String id, Lembrete formulario) {
         Optional<Lembrete> optionalLembrete = lembreteReposotorio.findById(id);
         if(optionalLembrete.isEmpty()){
             throw new EntityNotFoundException("Lembrete não encontrado com o ID: " + id);
@@ -49,7 +48,7 @@ public class LembreteServico {
         lembrete.setTitulo(formulario.getTitulo());
         lembrete.setPrioridade(formulario.getPrioridade());
 
-        return lembreteReposotorio.saveAndFlush(lembrete);
+        lembreteReposotorio.saveAndFlush(lembrete);
     }
 
     public void deletar(String id) {
