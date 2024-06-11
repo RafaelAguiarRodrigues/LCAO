@@ -1,0 +1,72 @@
+@import "../../../styles.scss";
+
+.modelo,
+.modelo1,
+.modelo2,
+.modelo3 {
+  background: $branco;
+  border: 1px solid $cinza;
+  padding: 1rem;
+  margin: 1rem 0 2rem;
+
+  .titulo {
+    text-align: center;
+    margin: 1rem auto;
+    word-wrap: break-word;
+  }
+
+  .descricao {
+    word-wrap: break-word;
+  }
+
+  .data {
+    margin: 1rem auto;
+    word-wrap: break-word;
+  }
+
+  .prioridade {
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
+
+  .acoes {
+    display: flex;
+    justify-content: flex-end;
+
+    .botao-editar,
+    .botao-excluir {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .botao-excluir {
+      margin-left: 5px;
+    }
+
+    .botao-editar {
+      margin-right: 10px;
+    }
+  }
+}
+
+.modelo1 {
+  box-shadow: 8px 8px 1px $vermelho-escuro;
+}
+
+.modelo2 {
+  box-shadow: 8px 8px 1px #39b8f8;
+}
+
+.modelo3 {
+  box-shadow: 8px 8px 1px #84ee89;
+}
+
+.anotacao-g {
+  width: 556px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}

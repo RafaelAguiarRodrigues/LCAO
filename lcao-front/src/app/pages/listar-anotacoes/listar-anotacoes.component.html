@@ -6,18 +6,17 @@
       <img src="assets/imagens/lupa.png" alt="Lupa preta">
     </div>
     <h2 class="cabecalho__titulo">Meu Mural</h2>
-    <button routerLink="/criarAnotacao" class="botao">Adicionar anotações</button>
+    <button routerLink="/anotacao/criar" class="botao">Adicionar anotações</button>
   </header>
-  <div class="mural" *ngIf="(lembretesEncontrados$ | async) as anotacoes; else semAnotacoes">
+  <div class="mural" *ngIf="(anotacoesEncontradas$ | async) as anotacoes; else semAnotacoes">
     <ng-container *ngIf="anotacoes.length > 0; else semAnotacoes">
       <div *ngFor="let anotacao of listaAnotacoes">
-        <!-- trocar para card de anotação: -->
-        <!-- <app-lembrete [lembrete]="anotacao"></app-lembrete> -->
+        <app-anotacao [anotacao]="anotacao"></app-anotacao>
       </div>
     </ng-container>
   </div>
-  <app-botao-carregar-mais [haMaisLembretes]="haMaisLembretes"
-    (click)="carregarMaisLembretes()"></app-botao-carregar-mais>
+  <app-botao-carregar-mais [haMaisLembretes]="haMaisAnotacoes"
+    (click)="carregarMaisAnotacoes()"></app-botao-carregar-mais>
 </section>
 <ng-template #semAnotacoes>
   <div class="sem-anotacoes">

@@ -1,0 +1,12 @@
+<div class="anotacao modelo {{ anotacao.modelo }} anotacao-g">
+  <p class="titulo"><b>{{ anotacao.titulo }}</b></p>
+  <p class="descricao">{{ anotacao.conteudo }}</p>
+  <div class="acoes">
+    <button class="botao-editar" routerLink="/anotacao/editar/{{ anotacao.id }}"><img
+        src="../../../../assets/imagens/icone-atualizar.svg" alt="Icone de editar"></button>
+    <button class="botao-excluir" (click)="openModalExcluir()"><img src="../../../../assets/imagens/icone-deletar.svg"
+        alt="Icone de excluir"></button>
+  </div>
+</div>
+<!-- <app-excluir-lembrete [id]="lembrete.id" [isVisible]="isExcluirVisible"
+  (visibilityChange)="handleVisibilityChange($event)"></app-excluir-lembrete> -->

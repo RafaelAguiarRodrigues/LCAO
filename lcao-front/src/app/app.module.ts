@@ -14,6 +14,8 @@ import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
 import { SharedModule } from './shared/shared.module';
 import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotacoes.component';
+import { CriarAnotacaoComponent } from './pages/listar-anotacoes/criar-anotacao/criar-anotacao.component';
+import { EditarAnotacaoComponent } from './pages/listar-anotacoes/editar-anotacao/editar-anotacao.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotac
     CadastrarUsuarioComponent,
     LoginUsuarioComponent,
     ListarLembreteComponent,
-    ListarAnotacoesComponent
+    ListarAnotacoesComponent,
+    CriarAnotacaoComponent,
+    EditarAnotacaoComponent
   ],
   imports: [
     BrowserModule,

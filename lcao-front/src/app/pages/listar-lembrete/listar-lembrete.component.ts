@@ -20,7 +20,7 @@ export class ListarLembreteComponent implements OnDestroy {
   subscription: Subscription;
   campoBusca: FormControl = new FormControl('');
 
-  constructor(private service: LembreteService, private router: Router) {
+  constructor(private service: LembreteService) {
     this.subscription = this.service.listar(this.paginaAtual, this.filtro).subscribe({
       next: (callback) => {
         this.listaLembretes.push(...callback);

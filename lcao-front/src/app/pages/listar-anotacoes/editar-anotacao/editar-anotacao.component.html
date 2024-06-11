@@ -1,0 +1,75 @@
+<section class="container editar-lembretes">
+  <header class="header">
+    <h2>Editar <br> Uma Anotação:</h2>
+  </header>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="lembrete">Anotação:</label>
+    <input type="textarea" class="input" id="lembrete" formControlName="titulo" placeholder="digite o titulo">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('titulo')?.errors?.['required'] && formulario.get('titulo')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <label for="conteudo">Conteúdo:</label>
+    <input type="text" class="input" id="conteudo" formControlName="conteudo"
+      placeholder="digite o conteúdo do lembrete">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('data')?.errors?.['dataInvalida'] && formulario.get('data')?.touched">
+      A data do lembrete não pode ser menor que a data atual!
+    </div>
+
+    <label for="modelo">Selecione o modelo do card:</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input type="radio" formControlName="modelo" id="modelo1" value="modelo1"
+            [checked]="formulario.get('modelo')?.value === 'modelo1'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo1">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input type="radio" formControlName="modelo" id="modelo2" value="modelo2"
+            [checked]="formulario.get('modelo')?.value === 'modelo2'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo2">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input type="radio" formControlName="modelo" id="modelo3" value="modelo3"
+            [checked]="formulario.get('modelo')?.value === 'modelo3'">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo3">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="acoes">
+      <button (click)="editarLembrete()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Salvar</button>
+      <button (click)="cancelar()" class="botao">Cancelar</button>
+    </div>
+  </form>
+</section>

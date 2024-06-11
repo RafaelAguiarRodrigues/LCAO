@@ -26,8 +26,8 @@ public class LembreteController {
             @RequestParam(defaultValue = "") Integer pagina,
             @RequestParam(defaultValue = "8") Integer limit,
             @RequestParam(defaultValue = "", required = false) String filtro) {
-        var usuarios = lembreteServico.listar(filtro, pagina, limit);
-        return ResponseEntity.ok(usuarios);
+        var lembretes = lembreteServico.listar(filtro, pagina, limit);
+        return ResponseEntity.ok(lembretes);
     }
 
     @GetMapping("{id}")

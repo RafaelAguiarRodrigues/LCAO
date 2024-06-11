@@ -9,6 +9,7 @@ import { SairUsuarioComponent } from "./sair-usuario/sair-usuario.component";
 import { RouterModule } from "@angular/router";
 import { BotaoCarregarMaisComponent } from "./botao-carregar-mais/botao-carregar-mais.component";
 import { MenuLateralComponent } from './cabecalho/menu-lateral/menu-lateral.component';
+import { AnotacaoComponent } from './anotacao/anotacao.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MenuLateralComponent } from './cabecalho/menu-lateral/menu-lateral.comp
     SairUsuarioComponent,
     BotaoCarregarMaisComponent,
     MenuLateralComponent,
+    AnotacaoComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { MenuLateralComponent } from './cabecalho/menu-lateral/menu-lateral.comp
     ExcluirLembreteComponent,
     SairUsuarioComponent,
     BotaoCarregarMaisComponent,
+    AnotacaoComponent
   ]
 })
 export class SharedModule {}

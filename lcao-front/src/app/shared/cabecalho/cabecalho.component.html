@@ -1,22 +1,26 @@
 <header class="cabecalho">
-  <div class="cabecalho__menu-hamburguer">
+  <div class="cabecalho__menu-hamburguer" *ngIf="user$ | async as Usuario else vazio">
     <img src="../../../../assets/imagens/menu.svg" alt="menu hamburguer" (click)="toggle('mainMenu')">
   </div>
+  <ng-template #vazio>
+    <div class="espacador"></div>
+  </ng-template>
   <div class="cabecalho__titulo">
     <h1>LCAO</h1>
   </div>
   <nav class="cabecalho__nav">
-    <a routerLink="/listarLembrete" class="nav__link">Home</a>
     <ng-container *ngIf="user$ | async as Usuario else login">
+      <a routerLink="/listarLembrete" class="nav__link">Home</a>
       <a href="#" class="nav__link">Meu usuário</a>
       <a class="nav__link" (click)="openModalSair()">Sair</a>
     </ng-container>
     <ng-template #login>
-      <a routerLink="/login" class="nav__link">Cadastrar/Login</a>
+      <a routerLink="/login" class="nav__link">Login</a>
+      <a routerLink="/cadastrarUsuario" class="nav__link">Cadastrar</a>
     </ng-template>
   </nav>
 </header>
-<app-menu-lateral [isMenuAtivo]="isMenuAtivo"></app-menu-lateral>
+<app-menu-lateral [isMenuAtivo]="isMenuAtivo" *ngIf="user$ | async as Usuario"></app-menu-lateral>
 <app-sair-usuario
   [isVisible]="isModalSairVisible"
   (visibilityChange)="handleVisibilityChange($event)">

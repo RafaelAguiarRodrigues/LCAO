@@ -16,15 +16,17 @@ public class LembreteServico {
     @Autowired
     private LembreteReposotorio lembreteReposotorio;
 
-    public Lembrete salvar(Lembrete formulario) {
+    public void salvar(Lembrete formulario) {
         Lembrete lembreteEntidade = new Lembrete();
+
         lembreteEntidade.setData(formulario.getData());
         lembreteEntidade.setDescricao(formulario.getDescricao());
         lembreteEntidade.setModelo(formulario.getModelo());
         lembreteEntidade.setTitulo(formulario.getTitulo());
         lembreteEntidade.setPrioridade(formulario.getPrioridade());
         lembreteEntidade.setUsuario(formulario.getUsuario());
-        return lembreteReposotorio.save(lembreteEntidade);
+
+        lembreteReposotorio.save(lembreteEntidade);
     }
 
     public List<Lembrete> listar(String filtro, Integer pagina, Integer limit) {
@@ -56,7 +58,6 @@ public class LembreteServico {
     }
 
     public Optional<Lembrete> buscarPorId(String id) {
-        var lembrete = lembreteReposotorio.findById(id);
-        return lembrete;
+        return lembreteReposotorio.findById(id);
     }
 }

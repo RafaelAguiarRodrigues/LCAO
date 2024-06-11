@@ -1,0 +1,68 @@
+<section class="container criar-anotacoes">
+  <header class="header">
+    <h2>Adicione uma <br> Anotação nova:</h2>
+  </header>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="anotacao">Anotação:</label>
+    <input type="textarea" class="input" id="anotacao" formControlName="titulo" placeholder="digite o titulo">
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('titulo')?.errors?.['required'] && formulario.get('titulo')?.touched">
+      Este campo é obrigatorio!
+    </div>
+    <label for="conteudo">Conteúdo:</label>
+    <input type="text" class="input" id="conteudo" formControlName="conteudo"
+      placeholder="digite o conteúdo da anotacao">
+
+    <label for="modelo">Selecione o modelo do card:</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input type="radio" formControlName="modelo" id="modelo1" value="modelo1">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo1">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input type="radio" formControlName="modelo" id="modelo2" value="modelo2">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo2">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input type="radio" formControlName="modelo" id="modelo3" value="modelo3">
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo3">
+          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="acoes">
+      <button (click)="cancelar()" class="botao">Cancelar</button>
+      <button (click)="criarLembrete()" class="botao" [disabled]="!formulario.valid">Salvar</button>
+    </div>
+  </form>
+</section>

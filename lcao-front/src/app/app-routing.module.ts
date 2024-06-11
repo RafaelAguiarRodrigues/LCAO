@@ -8,6 +8,8 @@ import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
 import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotacoes.component';
 import { authGuard } from './core/guards/auth.guard';
+import { CriarAnotacaoComponent } from './pages/listar-anotacoes/criar-anotacao/criar-anotacao.component';
+import { EditarAnotacaoComponent } from './pages/listar-anotacoes/editar-anotacao/editar-anotacao.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,16 @@ const routes: Routes = [
   {
     path: 'listarAnotacoes',
     component: ListarAnotacoesComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'anotacao/criar',
+    component: CriarAnotacaoComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'anotacao/editar/:id',
+    component: EditarAnotacaoComponent,
     canActivate: [authGuard]
   },
   {

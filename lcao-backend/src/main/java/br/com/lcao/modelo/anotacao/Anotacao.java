@@ -19,6 +19,8 @@ public class Anotacao {
     private String id;
     @Column(name = "conteudo", columnDefinition = "TEXT")
     private String conteudo;
+    @Column(name = "modelo", nullable = false, length = 40)
+    private String modelo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
