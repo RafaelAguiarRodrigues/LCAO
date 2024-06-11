@@ -7,23 +7,28 @@ import { EditarLembreteComponent } from './pages/listar-lembrete/editar-lembrete
 import { ListarLembreteComponent } from './pages/listar-lembrete/listar-lembrete.component';
 import { LoginUsuarioComponent } from './pages/login-usuario/login-usuario.component';
 import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotacoes.component';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'listarLembrete',
-    component: ListarLembreteComponent
+    component: ListarLembreteComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'criarLembrete',
-    component: CriarLembreteComponent
+    component: CriarLembreteComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'lembretes/editarLembrete/:id',
-    component: EditarLembreteComponent
+    component: EditarLembreteComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'listarAnotacoes',
-    component: ListarAnotacoesComponent
+    component: ListarAnotacoesComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'login',

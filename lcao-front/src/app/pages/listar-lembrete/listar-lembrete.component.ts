@@ -12,7 +12,7 @@ const DELAY = 300;
   templateUrl: './listar-lembrete.component.html',
   styleUrls: ['./listar-lembrete.component.scss']
 })
-export class ListarLembreteComponent implements OnInit, OnDestroy {
+export class ListarLembreteComponent implements OnDestroy {
   listaLembretes: Lembrete[] = [];
   paginaAtual = 0;
   haMaisLembretes = true;
@@ -51,15 +51,6 @@ export class ListarLembreteComponent implements OnInit, OnDestroy {
       }
     })
   );
-
-
-  ngOnInit(): void {
-    const usuarioLogado = localStorage.getItem('token');
-    if (usuarioLogado == null) {
-      this.router.navigate(['/login']);
-      alert('Você precisa estar logado para acessar a página!');
-    }
-  }
 
   carregarMaisLembretes(): void {
     this.service.listar(++this.paginaAtual, this.filtro).subscribe({

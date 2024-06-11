@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription, debounceTime, distinctUntilChanged, filter, map, startWith, switchMap } from 'rxjs';
@@ -11,7 +11,7 @@ const DELAY = 300;
   templateUrl: './listar-anotacoes.component.html',
   styleUrls: ['./listar-anotacoes.component.scss']
 })
-export class ListarAnotacoesComponent {
+export class ListarAnotacoesComponent implements OnDestroy {
   listaAnotacoes: Anotacao[] = [];
   paginaAtual = 0;
   haMaisLembretes = true;
@@ -51,25 +51,16 @@ export class ListarAnotacoesComponent {
     })
   );
 
-
-  ngOnInit(): void {
-    const usuarioLogado = localStorage.getItem('token');
-    if (usuarioLogado == null) {
-      this.router.navigate(['/login']);
-      alert('Você precisa estar logado para acessar a página!');
-    }
-  }
-
   carregarMaisLembretes(): void {
     this.service.listar(++this.paginaAtual, this.filtro).subscribe({
-        next: (callback) => {
-          const LembretesProxPage = callback;
-          this.listaAnotacoes.push(...LembretesProxPage);
-          if (!LembretesProxPage.length) {
-            this.haMaisLembretes = false;
-          }
+      next: (callback) => {
+        const LembretesProxPage = callback;
+        this.listaAnotacoes.push(...LembretesProxPage);
+        if (!LembretesProxPage.length) {
+          this.haMaisLembretes = false;
         }
-      });
+      }
+    });
   }
 
   ngOnDestroy(): void {
