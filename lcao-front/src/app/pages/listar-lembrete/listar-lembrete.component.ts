@@ -12,7 +12,7 @@ const DELAY = 300;
   templateUrl: './listar-lembrete.component.html',
   styleUrls: ['./listar-lembrete.component.scss']
 })
-export class ListarLembreteComponent implements OnDestroy {
+export class ListarLembreteComponent implements OnDestroy, OnInit {
   listaLembretes: Lembrete[] = [];
   paginaAtual = 0;
   haMaisLembretes = true;
@@ -29,6 +29,10 @@ export class ListarLembreteComponent implements OnDestroy {
         alert("Erro ao listar Lembretes!");
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.requestNotificationPermission();
   }
 
   public lembretesEncontrados$ = this.campoBusca.valueChanges.pipe(
@@ -62,6 +66,16 @@ export class ListarLembreteComponent implements OnDestroy {
           }
         }
       });
+  }
+
+  private requestNotificationPermission() {
+    if ('Notification' in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission !== 'granted') {
+          console.log('Permissão de notificação negada');
+        }
+      });
+    }
   }
 
   ngOnDestroy(): void {

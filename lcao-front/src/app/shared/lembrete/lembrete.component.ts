@@ -36,7 +36,7 @@ export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
           }
           this.playAudio();
           setTimeout(() => {
-            alert(`${this.lembrete.titulo}\nprioridade: ${this.lembrete.prioridade}`);
+            this.notificarDispositivo(`${this.lembrete.titulo}\nprioridade: ${this.lembrete.prioridade}`);
             this.pauseAudio();
             window.focus();
           }, 1000);
@@ -78,6 +78,25 @@ export class LembreteComponent implements OnInit, OnDestroy, AfterViewInit {
       this.audioPlayer.pause();
       this.audioPlayer.currentTime = 0;
     }
+  }
+
+  private notificarDispositivo(mensagem: string) {
+    const title = "Lembrete";
+    const options = {
+      body: mensagem,
+      requireInteraction: true
+    };
+
+    if ('Notification' in window && Notification.permission === 'granted') {
+      const notification = new Notification(title, options);
+
+      this.playAudio();
+
+      notification.onclick = () => {
+        window.focus();
+      }
+    }
+
   }
 
   openModalExcluir() {
