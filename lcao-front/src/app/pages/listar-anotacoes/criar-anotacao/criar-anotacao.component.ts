@@ -16,7 +16,7 @@ export class CriarAnotacaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
-      titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      titulo: [''],
       conteudo: [''],
       modelo: ['modelo1']
     });
@@ -28,7 +28,7 @@ export class CriarAnotacaoComponent implements OnInit {
 
       this.service.criar(novoLembrete).subscribe({
         next: () => {
-          this.router.navigate(['./listarLembrete']);
+          this.router.navigate(['./listarAnotacoes']);
         }
       });
     }

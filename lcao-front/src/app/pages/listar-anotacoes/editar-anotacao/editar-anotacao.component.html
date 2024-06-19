@@ -1,4 +1,4 @@
-<section class="container editar-lembretes">
+<section class="container editar-anotacoes">
   <header class="header">
     <h2>Editar <br> Uma Anotação:</h2>
   </header>
@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="acoes">
-      <button (click)="editarLembrete()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Salvar</button>
+      <button (click)="editarLembrete()" class="botao" [disabled]="!formulario.valid">Salvar</button>
       <button (click)="cancelar()" class="botao">Cancelar</button>
     </div>
   </form>

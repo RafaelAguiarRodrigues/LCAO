@@ -10,6 +10,7 @@ import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotac
 import { authGuard } from './core/guards/auth.guard';
 import { CriarAnotacaoComponent } from './pages/listar-anotacoes/criar-anotacao/criar-anotacao.component';
 import { EditarAnotacaoComponent } from './pages/listar-anotacoes/editar-anotacao/editar-anotacao.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,11 @@ const routes: Routes = [
   {
     path: 'cadastrarUsuario',
     component: CadastrarUsuarioComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent,
+    canActivate: [authGuard]
   },
   {
     path: '',

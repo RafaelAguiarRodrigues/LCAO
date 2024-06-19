@@ -1,7 +1,7 @@
 <menu class="menu-nav active" [class.active]="isMenuAtivo">
   <ul class="menu-nav__lista">
-    <li><a routerLink="/listarLembrete">Lembretes</a></li>
-    <li><a routerLink="/listarAnotacoes">Anotações</a></li>
-    <li><a routerLink="#">Perfil</a></li>
+    <li><a routerLink="/listarLembrete" (click)="trocarMenu()">Lembretes</a></li>
+    <li><a routerLink="/listarAnotacoes" (click)="trocarMenu()">Anotações</a></li>
+    <li><a routerLink="/perfil" (click)="trocarMenu()">Perfil</a></li>
   </ul>
 </menu>

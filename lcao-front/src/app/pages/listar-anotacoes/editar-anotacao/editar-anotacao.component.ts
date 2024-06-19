@@ -23,49 +23,44 @@ export class EditarAnotacaoComponent {
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       id: [''],
-      titulo: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      titulo: [''],
       conteudo: [''],
       modelo: ['modelo1']
     });
 
     const idParam = this.route.snapshot.paramMap.get('id') as string;
 
-    this.service.buscarPorId(idParam).subscribe((lembrete) => {
+    this.service.buscarPorId(idParam).subscribe((anotacao) => {
+      this.anotacao = anotacao;
       this.formulario.patchValue({
-        id: lembrete.id,
-        titulo: lembrete.titulo,
-        conteudo: lembrete.conteudo,
-        modelo: lembrete.modelo,
-        usuario_id: lembrete.usuario_id
+        id: anotacao.id,
+        titulo: anotacao.titulo,
+        conteudo: anotacao.conteudo,
+        modelo: anotacao.modelo,
+        usuario_id: anotacao.usuario_id
       })
     });
   }
 
   editarLembrete() {
     if (this.formulario.valid) {
-      const anotacao: Anotacao = {
-        id: this.formulario.controls['id']?.value,
+      const anotacaoAtualizada: Anotacao = {
+        id: this.anotacao.id,
         titulo: this.formulario.controls['titulo']?.value,
         conteudo: this.formulario.controls['conteudo']?.value,
         modelo: this.formulario.controls['modelo']?.value,
         usuario_id: ''
       }
 
-      this.service.editar(this.anotacao.id, anotacao).subscribe(() => {
-        this.router.navigate(['/listarAnotacoes']);
+      this.service.editar(this.anotacao.id, anotacaoAtualizada).subscribe({
+        next: () => {
+          this.router.navigate(['/listarAnotacoes']);
+        }
       });
     }
   }
 
   cancelar() {
     this.router.navigate(['/listarAnotacoes']);
-  }
-
-  habilitarBotao(): string {
-    if (this.formulario && this.formulario.valid) {
-      return 'botao';
-    } else {
-      return 'botao__desabilitado';
-    }
   }
 }

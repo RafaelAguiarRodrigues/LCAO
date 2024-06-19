@@ -11,7 +11,7 @@
   <nav class="cabecalho__nav">
     <ng-container *ngIf="user$ | async as Usuario else login">
       <a routerLink="/listarLembrete" class="nav__link">Home</a>
-      <a href="#" class="nav__link">Meu usuário</a>
+      <a routerLink="/perfil" class="nav__link">Meu usuário</a>
       <a class="nav__link" (click)="openModalSair()">Sair</a>
     </ng-container>
     <ng-template #login>

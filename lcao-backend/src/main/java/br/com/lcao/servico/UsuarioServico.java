@@ -1,11 +1,10 @@
 package br.com.lcao.servico;
 
 import br.com.lcao.repositorio.UsuarioReposotorio;
-import br.com.lcao.modelo.usuario.AutenticacaoDTO;
 import br.com.lcao.modelo.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -32,6 +31,13 @@ public class UsuarioServico {
             usuario.get().setEmail(formulario.getEmail());
             usuarioReposotorio.saveAndFlush(usuario.get());
         }
+    }
+
+    public Optional<Usuario> findMe() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Usuario usuario = (Usuario) authentication.getPrincipal();
+        String id = usuario.getId();
+        return usuarioReposotorio.findById(id);
     }
 
 //    private String encryptPassword(String rawPassword) {

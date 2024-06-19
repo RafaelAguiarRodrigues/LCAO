@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { ListarAnotacoesComponent } from './pages/listar-anotacoes/listar-anotacoes.component';
 import { CriarAnotacaoComponent } from './pages/listar-anotacoes/criar-anotacao/criar-anotacao.component';
 import { EditarAnotacaoComponent } from './pages/listar-anotacoes/editar-anotacao/editar-anotacao.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditarAnotacaoComponent } from './pages/listar-anotacoes/editar-anotaca
     ListarLembreteComponent,
     ListarAnotacoesComponent,
     CriarAnotacaoComponent,
-    EditarAnotacaoComponent
+    EditarAnotacaoComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

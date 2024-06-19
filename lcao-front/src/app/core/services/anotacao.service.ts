@@ -27,11 +27,15 @@ export class AnotacaoService {
     return this.http.post<Anotacao>(`${this.API}/anotacao`, anotacao);
   }
 
-  buscarPorId(id: string){
+  buscarPorId(id: string) {
     return this.http.get<Anotacao>(`${this.API}/anotacao/${id}`);
   }
 
   editar(id: string, anotacao: Anotacao): Observable<Anotacao> {
     return this.http.put<Anotacao>(`${this.API}/anotacao/${id}`, anotacao);
+  }
+
+  excluir(id: string): Observable<Anotacao> {
+    return this.http.delete<Anotacao>(`${this.API}/anotacao/${id}`);
   }
 }

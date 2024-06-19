@@ -8,4 +8,8 @@ import { Component, Input } from '@angular/core';
 export class MenuLateralComponent {
   panelOpenState = false;
   @Input() isMenuAtivo = false;
+
+  trocarMenu(){
+    this.isMenuAtivo = !this.isMenuAtivo
+  }
 }

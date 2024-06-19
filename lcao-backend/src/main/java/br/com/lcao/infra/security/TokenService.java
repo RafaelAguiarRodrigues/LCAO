@@ -22,10 +22,12 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("LCAO-API")
                     .withSubject(usuario.getEmail())
+                    .withClaim("id", usuario.getId())
+                    .withClaim("nome", usuario.getNome())
                     .withExpiresAt(genExpirationDate())
                     .sign(algoritmo);
         } catch (JWTCreationException ex) {
-            throw new RuntimeException("Erro enquanto o token foi gerado", ex);
+            throw new RuntimeException("Erro ao gerar o token: ", ex);
         }
     }
 

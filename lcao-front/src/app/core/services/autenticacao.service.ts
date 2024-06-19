@@ -24,6 +24,10 @@ export class AutenticacaoService {
     return this.http.post<Usuario>(`${this.API}/auth/register`, usuario);
   }
 
+  editar(id: string, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.API}/auth/${id}`, usuario);
+  }
+
   autenticar(usuario: Usuario): Observable<HttpResponse<AuthResponse>> {
     return this.http.post<AuthResponse>(`${this.API}/auth/login`, usuario, { observe: 'response' })
       .pipe(
@@ -34,5 +38,9 @@ export class AutenticacaoService {
           }
         )
       );
+  }
+
+  buscarUsuarioLogado(): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.API}/auth/me`);
   }
 }
