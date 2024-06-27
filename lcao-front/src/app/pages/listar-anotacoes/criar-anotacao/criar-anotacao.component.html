@@ -3,15 +3,11 @@
     <h2>Adicione uma <br> Anotação nova:</h2>
   </header>
   <form [formGroup]="formulario" *ngIf="formulario">
-    <label for="anotacao">Anotação:</label>
-    <input type="textarea" class="input" id="anotacao" formControlName="titulo" placeholder="digite o titulo">
-    <div class="mensagem__erro"
-      *ngIf="formulario.get('titulo')?.errors?.['required'] && formulario.get('titulo')?.touched">
-      Este campo é obrigatorio!
-    </div>
+    <!-- <label for="anotacao">Anotação:</label> -->
+    <!-- <input type="textarea" class="input" id="anotacao" formControlName="titulo" placeholder="digite o titulo"> -->
     <label for="conteudo">Conteúdo:</label>
-    <input type="text" class="input" id="conteudo" formControlName="conteudo"
-      placeholder="digite o conteúdo da anotacao">
+    <textarea class="textarea" id="conteudo" formControlName="conteudo"
+      placeholder="digite o conteúdo da anotacao"></textarea>
 
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
@@ -25,7 +21,7 @@
         </label>
         Prévia:
         <div class="modelo modelo1">
-          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <!-- <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p> -->
           <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
         </div>
       </div>
@@ -40,7 +36,7 @@
         </label>
         Prévia:
         <div class="modelo modelo2">
-          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <!-- <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p> -->
           <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
         </div>
       </div>
@@ -55,7 +51,7 @@
         </label>
         Prévia:
         <div class="modelo modelo3">
-          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <!-- <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p> -->
           <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
         </div>
       </div>

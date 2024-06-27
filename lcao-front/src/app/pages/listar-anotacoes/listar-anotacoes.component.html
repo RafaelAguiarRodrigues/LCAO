@@ -2,21 +2,17 @@
   <header class="lista-anotacoes__cabecalho">
     <div class="buscar-anotacoes">
       <input type="search" class="filtro" name="filtro" id="filtro" placeholder="Procurando alguma anotação?" [formControl]="campoBusca">
-      <!-- <input type="search" class="filtro" name="filtro" id="filtro" placeholder="O que você procura?" autofocus [(ngModel)]="filtro" (input)="pesquisarLembretes()" [formControl]="campoBusca"> -->
       <img src="assets/imagens/lupa.png" alt="Lupa preta">
     </div>
     <h2 class="cabecalho__titulo">Meu Mural</h2>
     <button routerLink="/anotacao/criar" class="botao">Adicionar anotações</button>
   </header>
-  <div class="mural" *ngIf="(anotacoesEncontradas$ | async) as anotacoes; else semAnotacoes">
-    <ng-container *ngIf="anotacoes.length > 0; else semAnotacoes">
-      <div *ngFor="let anotacao of listaAnotacoes">
-        <app-anotacao [anotacao]="anotacao"></app-anotacao>
-      </div>
-    </ng-container>
+  <div class="mural" *ngIf="listaAnotacoes.length > 0; else semAnotacoes">
+    <div *ngFor="let anotacao of listaAnotacoes">
+      <app-anotacao [anotacao]="anotacao"></app-anotacao>
+    </div>
   </div>
-  <app-botao-carregar-mais [haMaisLembretes]="haMaisAnotacoes"
-    (click)="carregarMaisAnotacoes()"></app-botao-carregar-mais>
+  <app-botao-carregar-mais [haMaisLembretes]="haMaisAnotacoes" (click)="carregarMaisAnotacoes()"></app-botao-carregar-mais>
 </section>
 <ng-template #semAnotacoes>
   <div class="sem-anotacoes">

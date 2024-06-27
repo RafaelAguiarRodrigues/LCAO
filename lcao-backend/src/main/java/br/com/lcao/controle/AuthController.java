@@ -44,7 +44,7 @@ public class AuthController {
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.getSenha());
-        Usuario novoUsuario = new Usuario(usuario.getNome(), usuario.getEmail(), encryptedPassword);
+        Usuario novoUsuario = new Usuario(null,usuario.getNome(), usuario.getEmail(),null, encryptedPassword);
 
         this.usuarioRepositorio.save(novoUsuario);
 
@@ -54,7 +54,7 @@ public class AuthController {
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> editar(@PathVariable("id") String id, @RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = this.usuarioRepositorio.findById(id);
-        if (!usuarioExistente.isPresent()) {
+        if (usuarioExistente.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
@@ -67,6 +67,7 @@ public class AuthController {
         String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.getSenha());
         usuarioAtual.setNome(usuario.getNome());
         usuarioAtual.setEmail(usuario.getEmail());
+        usuarioAtual.setImagem(usuario.getImagem());
         usuarioAtual.setSenha(encryptedPassword);
 
         this.usuarioRepositorio.save(usuarioAtual);

@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS lcaoBanco.`tabela_usuario` (
     `id` VARCHAR(36) UNIQUE NOT NULL,
     `nome` VARCHAR(255) NOT NULL,
     `email` VARCHAR(150) NOT NULL,
+    `imagem` LONGTEXT NULL,
     `senha` VARCHAR(80) NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE = InnoDB;

@@ -15,14 +15,22 @@ export class ListarAnotacoesComponent implements OnDestroy {
   listaAnotacoes: Anotacao[] = [];
   paginaAtual = 0;
   haMaisAnotacoes = true;
-  filtro = '';
   subscription: Subscription;
   campoBusca: FormControl = new FormControl('');
 
   constructor(private service: AnotacaoService) {
-    this.subscription = this.service.listar(this.paginaAtual, this.filtro).subscribe({
-      next: (callback) => {
-        this.listaAnotacoes.push(...callback);
+    this.subscription = this.campoBusca.valueChanges.pipe(
+      startWith(''),
+      debounceTime(DELAY),
+      distinctUntilChanged(),
+      switchMap((filtro: string) => {
+        this.paginaAtual = 0;
+        this.haMaisAnotacoes = true;
+        return this.service.listar(this.paginaAtual, filtro);
+      })
+    ).subscribe({
+      next: (anotacoes) => {
+        this.listaAnotacoes = anotacoes;
       },
       error: () => {
         alert("Erro ao listar Anotações!");
@@ -30,35 +38,16 @@ export class ListarAnotacoesComponent implements OnDestroy {
     });
   }
 
-  public anotacoesEncontradas$ = this.campoBusca.valueChanges.pipe(
-    startWith(''),
-    debounceTime(DELAY),
-    distinctUntilChanged(),
-    switchMap((filtro: string) => {
-      this.paginaAtual = 0;
-      this.haMaisAnotacoes = true;
-      this.filtro = filtro;
-      if (filtro) {
-        return this.service.listar(this.paginaAtual, this.filtro).pipe(
-          map(callback => callback),
-          filter(anotacoes => anotacoes.length > 0)
-        );
-      } else {
-        return this.service.listar(this.paginaAtual, this.filtro).pipe(
-          map(callback => callback)
-        );
-      }
-    })
-  );
-
   carregarMaisAnotacoes(): void {
-    this.service.listar(++this.paginaAtual, this.filtro).subscribe({
-      next: (callback) => {
-        const LembretesProxPage = callback;
-        this.listaAnotacoes.push(...LembretesProxPage);
-        if (!LembretesProxPage.length) {
+    this.service.listar(++this.paginaAtual, this.campoBusca.value).subscribe({
+      next: (anotacoes) => {
+        this.listaAnotacoes.push(...anotacoes);
+        if (!anotacoes.length) {
           this.haMaisAnotacoes = false;
         }
+      },
+      error: () => {
+        alert("Erro ao carregar mais Anotações!");
       }
     });
   }

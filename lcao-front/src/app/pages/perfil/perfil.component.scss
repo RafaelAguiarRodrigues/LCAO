@@ -1,6 +1,6 @@
 @import "../../../styles.scss";
 
-.criar-usuario {
+.perfil {
   padding: 2rem 0;
 
   .header {
@@ -13,6 +13,12 @@
   }
 
   form {
+    img {
+      border-radius: 100%;
+      margin: 0 auto;
+      height: 300px;
+      width: 30%;
+    }
     background: $branco;
     // border: 1px solid $vermelho;
     box-shadow: 3px 3px 5px $vermelho;

@@ -3,19 +3,11 @@
     <h2>Editar <br> Uma Anotação:</h2>
   </header>
   <form [formGroup]="formulario" *ngIf="formulario">
-    <label for="lembrete">Anotação:</label>
-    <input type="textarea" class="input" id="lembrete" formControlName="titulo" placeholder="digite o titulo">
-    <div class="mensagem__erro"
-      *ngIf="formulario.get('titulo')?.errors?.['required'] && formulario.get('titulo')?.touched">
-      Este campo é obrigatorio!
-    </div>
+    <!-- <label for="lembrete">Anotação:</label>
+    <input type="textarea" class="input" id="lembrete" formControlName="titulo" placeholder="digite o titulo"> -->
     <label for="conteudo">Conteúdo:</label>
-    <input type="text" class="input" id="conteudo" formControlName="conteudo"
-      placeholder="digite o conteúdo do lembrete">
-    <div class="mensagem__erro"
-      *ngIf="formulario.get('data')?.errors?.['dataInvalida'] && formulario.get('data')?.touched">
-      A data do lembrete não pode ser menor que a data atual!
-    </div>
+    <textarea class="textarea" id="conteudo" formControlName="conteudo"
+      placeholder="digite o conteúdo do lembrete"></textarea>
 
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
@@ -30,7 +22,7 @@
         </label>
         Prévia:
         <div class="modelo modelo1">
-          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <!-- <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p> -->
           <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
         </div>
       </div>
@@ -46,7 +38,7 @@
         </label>
         Prévia:
         <div class="modelo modelo2">
-          <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p>
+          <!-- <p class="titulo"><b>{{ formulario.get('titulo')?.value }}</b></p> -->
           <p class="conteudo">{{ formulario.get('conteudo')?.value }}</p>
         </div>
       </div>

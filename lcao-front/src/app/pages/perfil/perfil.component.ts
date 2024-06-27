@@ -13,6 +13,7 @@ import { Usuario } from 'src/app/core/types/usuario';
 export class PerfilComponent implements OnInit {
   formulario!: FormGroup;
   usuario!: Usuario;
+  imagemPreview: string | ArrayBuffer | null = null;
 
   constructor(
     private router: Router,
@@ -27,16 +28,33 @@ export class PerfilComponent implements OnInit {
         this.formulario.patchValue({
           id: usuario.id,
           nome: usuario.nome,
-          email: usuario.email
-        })
+          email: usuario.email,
+          imagem: usuario.imagem // Assumindo que `usuario.imagem` contém a string base64 da imagem.
+        });
+        this.imagemPreview = usuario.imagem;
       }
     });
 
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(4)]],
       email: [null, [Validators.required, Validators.minLength(6), Validators.email]],
+      imagem: [null],
       senha: [null, [Validators.required, Validators.minLength(5)]]
     });
+  }
+
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagemPreview = reader.result;
+        this.formulario.patchValue({
+          imagem: reader.result
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   editarUsuario() {
@@ -45,6 +63,7 @@ export class PerfilComponent implements OnInit {
         id: this.usuario.id,
         nome: this.formulario.value.nome,
         email: this.formulario.value.email,
+        imagem: this.formulario.value.imagem,
         senha: this.formulario.value.senha,
       }
       this.service.editar(this.usuario.id, usuarioAtualizado).subscribe({

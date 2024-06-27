@@ -1,25 +1,21 @@
 <section class="lista-lembrete">
-  <header class="Lista-lembrete__cabecalho">
+  <header class="lista-lembrete__cabecalho">
     <div class="buscar-lembretes">
       <input type="search" class="filtro" name="filtro" id="filtro" placeholder="Procurando algum lembrete?" [formControl]="campoBusca">
-      <!-- <input type="search" class="filtro" name="filtro" id="filtro" placeholder="O que você procura?" autofocus [(ngModel)]="filtro" (input)="pesquisarLembretes()" [formControl]="campoBusca"> -->
       <img src="assets/imagens/lupa.png" alt="Lupa preta">
     </div>
     <h2 class="cabecalho__titulo">Meu Mural</h2>
     <button routerLink="/criarLembrete" class="botao">Adicionar lembretes</button>
   </header>
-  <div class="mural" *ngIf="(lembretesEncontrados$ | async) as lembretes; else semLembretes">
-    <ng-container *ngIf="lembretes.length > 0; else semLembretes">
-      <div *ngFor="let lembrete of listaLembretes">
-        <app-lembrete [lembrete]="lembrete"></app-lembrete>
-      </div>
-    </ng-container>
+  <div class="mural" *ngIf="listaLembretes.length > 0; else semLembretes">
+    <div *ngFor="let lembrete of listaLembretes">
+      <app-lembrete [lembrete]="lembrete"></app-lembrete>
+    </div>
   </div>
-  <app-botao-carregar-mais [haMaisLembretes]="haMaisLembretes"
-    (click)="carregarMaisLembretes()"></app-botao-carregar-mais>
+  <app-botao-carregar-mais [haMaisLembretes]="haMaisLembretes" (click)="carregarMaisLembretes()"></app-botao-carregar-mais>
 </section>
 <ng-template #semLembretes>
-  <div class="sem-Lembretes">
+  <div class="sem-lembretes">
     <p>Ainda não há lembretes cadastrados!</p>
   </div>
 </ng-template>

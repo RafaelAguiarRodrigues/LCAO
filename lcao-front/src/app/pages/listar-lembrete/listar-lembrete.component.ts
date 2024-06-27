@@ -2,11 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, startWith, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, startWith, switchMap } from 'rxjs/operators';
 import { LembreteService } from 'src/app/core/services/lembrete.service';
 import { Lembrete } from 'src/app/core/types/lembrete';
 
 const DELAY = 300;
+
 @Component({
   selector: 'app-listar-lembrete',
   templateUrl: './listar-lembrete.component.html',
@@ -16,14 +17,22 @@ export class ListarLembreteComponent implements OnDestroy, OnInit {
   listaLembretes: Lembrete[] = [];
   paginaAtual = 0;
   haMaisLembretes = true;
-  filtro = '';
   subscription: Subscription;
   campoBusca: FormControl = new FormControl('');
 
   constructor(private service: LembreteService) {
-    this.subscription = this.service.listar(this.paginaAtual, this.filtro).subscribe({
-      next: (callback) => {
-        this.listaLembretes.push(...callback);
+    this.subscription = this.campoBusca.valueChanges.pipe(
+      startWith(''),
+      debounceTime(DELAY),
+      distinctUntilChanged(),
+      switchMap((filtro: string) => {
+        this.paginaAtual = 0;
+        this.haMaisLembretes = true;
+        return this.service.listar(this.paginaAtual, filtro);
+      })
+    ).subscribe({
+      next: (lembretes) => {
+        this.listaLembretes = lembretes;
       },
       error: () => {
         alert("Erro ao listar Lembretes!");
@@ -35,37 +44,18 @@ export class ListarLembreteComponent implements OnDestroy, OnInit {
     this.requestNotificationPermission();
   }
 
-  public lembretesEncontrados$ = this.campoBusca.valueChanges.pipe(
-    startWith(''),
-    debounceTime(DELAY),
-    distinctUntilChanged(),
-    switchMap((filtro: string) => {
-      this.paginaAtual = 0;
-      this.haMaisLembretes = true;
-      this.filtro = filtro;
-      if (filtro) {
-        return this.service.listar(this.paginaAtual, this.filtro).pipe(
-          map(callback => callback),
-          filter(lembretes => lembretes.length > 0)
-        );
-      } else {
-        return this.service.listar(this.paginaAtual, this.filtro).pipe(
-          map(callback => callback)
-        );
-      }
-    })
-  );
-
   carregarMaisLembretes(): void {
-    this.service.listar(++this.paginaAtual, this.filtro).subscribe({
-        next: (callback) => {
-          const LembretesProxPage = callback;
-          this.listaLembretes.push(...LembretesProxPage);
-          if (!LembretesProxPage.length) {
-            this.haMaisLembretes = false;
-          }
+    this.service.listar(++this.paginaAtual, this.campoBusca.value).subscribe({
+      next: (lembretes) => {
+        this.listaLembretes.push(...lembretes);
+        if (!lembretes.length) {
+          this.haMaisLembretes = false;
         }
-      });
+      },
+      error: () => {
+        alert("Erro ao carregar mais Lembretes!");
+      }
+    });
   }
 
   private requestNotificationPermission() {

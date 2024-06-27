@@ -24,13 +24,16 @@ public class Usuario implements UserDetails {
     private String nome;
     @Column(name = "email", nullable = false, length = 150)
     private String email;
+    @Column(name = "imagem")
+    private String imagem;
     @Column(name = "senha", nullable = false, length = 40)
     private String senha;
 
-    public Usuario (String nome, String email, String senha){
+    public Usuario (String nome, String email, String senha, String imagem){
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.imagem = imagem;
     }
 
     @Override

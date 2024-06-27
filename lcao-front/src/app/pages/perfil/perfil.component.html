@@ -1,8 +1,15 @@
-<section class="container criar-usuario">
-  <header class="header">
+<section class="container perfil">
+  <div class="header">
     <h2>Editar minha conta:</h2>
-  </header>
+  </div>
   <form [formGroup]="formulario" *ngIf="formulario">
+    <img [src]="imagemPreview || '../../../assets/imagens/account_circle_48dp_FILL0_wght400_GRAD0_opsz48.svg'"
+         alt="foto de perfil"
+         (click)="fileInput.click()"
+         style="cursor: pointer;">
+
+    <!-- Input de arquivo escondido -->
+    <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
     <label for="nome">Nome:</label>
     <input type="text" class="input" id="nome" formControlName="nome" placeholder="digite o nome">
     <div class="mensagem__erro" *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched">
